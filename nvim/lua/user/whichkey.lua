@@ -97,7 +97,7 @@ local mappings = {
 	["k"] = { "<cmd>lua require(\"copilot.suggestion\").toggle_auto_trigger()<cr>", "Toggle Copilot"},
 	["h"] = { "<cmd>TroubleToggle<cr>", "Trouble" },
 	["o"] = { "<cmd>SymbolsOutline<cr>", "Symbols"},
-	["a"] = { "<cmd>Telescope zoxide list<cr>", "Zoxide" },
+	["z"] = { "<cmd>Telescope zoxide list<cr>", "Zoxide" },
 
 	p = {
 		name = "Packer",
