@@ -15,6 +15,7 @@ local plugins = {
 	{ 
 		'nvim-treesitter/nvim-treesitter',
 		build = ":TSUpdate",
+		priority = 10,
 		config = function()
 			require('plugins.treesitter')
 		end 
@@ -22,24 +23,25 @@ local plugins = {
 
 	{
 		'VonHeikemen/lsp-zero.nvim',
+		lazy = true,
 	},
 
-	{ 'neovim/nvim-lspconfig' },
-    { 'williamboman/mason.nvim' },
-    { 'williamboman/mason-lspconfig.nvim' },
+	{ 'neovim/nvim-lspconfig', lazy = true },
+    { 'williamboman/mason.nvim', lazy = true },
+    { 'williamboman/mason-lspconfig.nvim', lazy = true },
 
     -- Autocompletion
 
-    { 'hrsh7th/nvim-cmp' },
-    { 'hrsh7th/cmp-nvim-lsp' },
-    { 'hrsh7th/cmp-buffer' },
-    { 'hrsh7th/cmp-path' },
-    { 'saadparwaiz1/cmp_luasnip' },
-    { 'hrsh7th/cmp-nvim-lua' },
+    { 'hrsh7th/nvim-cmp', lazy = true },
+    { 'hrsh7th/cmp-nvim-lsp', lazy = true },
+    { 'hrsh7th/cmp-buffer', lazy = true },
+    { 'hrsh7th/cmp-path', lazy = true },
+    { 'saadparwaiz1/cmp_luasnip', lazy = true },
+    { 'hrsh7th/cmp-nvim-lua', lazy = true },
 
     -- Snippets
-    { 'L3MON4D3/LuaSnip' },
-    { 'rafamadriz/friendly-snippets' },
+    { 'L3MON4D3/LuaSnip', lazy = true },
+    { 'rafamadriz/friendly-snippets', lazy = true },
 
 }
 

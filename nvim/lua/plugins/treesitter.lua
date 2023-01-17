@@ -4,7 +4,7 @@ if not status_ok then
 end
 
 configs.setup({
-	ensure_installed = "all", -- one of "all" or a list of languages
+	ensure_installed = { "rust", "lua", "help", "c", "cpp", }, -- one of "all" or a list of languages
 
 	ignore_install = { "bash" }, -- List of parsers to ignore installing
 	highlight = {
