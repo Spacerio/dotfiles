@@ -21,15 +21,6 @@ local plugins = {
 		end
 	},
 
-	{
-		'VonHeikemen/lsp-zero.nvim',
-		lazy = false,
-		priority = 1,
-		config = function ()
-			require('user.lsp.zero')
-		end
-	},
-
 	{ 'neovim/nvim-lspconfig' },
     { 'williamboman/mason.nvim' },
     { 'williamboman/mason-lspconfig.nvim' },
