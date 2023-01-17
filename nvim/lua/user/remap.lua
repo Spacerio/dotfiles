@@ -1,5 +1,7 @@
 local opts = {noremap = true, silent = true}
+local remap = {noremap = false, silent = true}
 local map = vim.api.nvim_set_keymap
+
 vim.g.mapleader = " "
 
 --Buffer navigation
@@ -18,3 +20,6 @@ builtin = require('telescope.builtin')
 compact_dropdown = themes.get_dropdown{previewer = false}
 
 map('n', '<C-p>', ":lua builtin.fd(compact_dropdown)<cr>", opts) 
+
+--Lazy.nvim
+map('n', '<leader>l', ':Lazy<cr>', remap)
