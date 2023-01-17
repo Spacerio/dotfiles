@@ -11,21 +11,7 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
-plugins = {
-	-- the colorscheme should be available when starting Neovim
-	{
-		"folke/tokyonight.nvim",
-		lazy = false, -- make sure we load this during startup if it is your main colorscheme
-		priority = 1000, -- make sure to load this before all the other start plugins
-		config = function()
-			require('user.color')
-		end
-
-	},
-
-	{ 'nvim-lua/plenary.nvim' },
-	{ 'nvim-telescope/telescope.nvim' },
-}
+plugins = require('user.plugins')
 
 --local plugins = require('user.plugins')
 
