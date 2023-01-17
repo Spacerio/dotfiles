@@ -26,6 +26,10 @@ compact_dropdown = themes.get_dropdown{previewer = false}
 
 map('n', '<C-p>', ":lua builtin.fd(compact_dropdown)<cr>", opts) 
 map('n', '<C-n>', ":Telescope builtin<cr>", opts)
+map('n', '<leader>f', ":lua builtin.live_grep(themes.get_ivy())<cr>", opts)
 
 --Lazy.nvim
 map('n', '<leader>l', ':Lazy<cr>', opts)
+
+
+--Temp ones for debugging 
