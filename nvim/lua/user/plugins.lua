@@ -1,8 +1,8 @@
 local plugins = {
 	{
 		"folke/tokyonight.nvim",
-		lazy = false, 
-		priority = 1000, 
+		lazy = false,
+		priority = 1000,
 		config = function()
 			require('user.color')
 		end
@@ -12,36 +12,40 @@ local plugins = {
 	{ 'nvim-lua/plenary.nvim' },
 	{ 'nvim-telescope/telescope.nvim' },
 
-	{ 
+	{
 		'nvim-treesitter/nvim-treesitter',
 		build = ":TSUpdate",
 		priority = 10,
 		config = function()
-			require('plugins.treesitter')
-		end 
+			require('user.plugins.treesitter')
+		end
 	},
 
 	{
 		'VonHeikemen/lsp-zero.nvim',
-		lazy = true,
+		lazy = false,
+		priority = 1,
+		config = function ()
+			require('user.lsp.zero')
+		end
 	},
 
-	{ 'neovim/nvim-lspconfig', lazy = true },
-    { 'williamboman/mason.nvim', lazy = true },
-    { 'williamboman/mason-lspconfig.nvim', lazy = true },
+	{ 'neovim/nvim-lspconfig' },
+    { 'williamboman/mason.nvim' },
+    { 'williamboman/mason-lspconfig.nvim' },
 
     -- Autocompletion
 
-    { 'hrsh7th/nvim-cmp', lazy = true },
-    { 'hrsh7th/cmp-nvim-lsp', lazy = true },
-    { 'hrsh7th/cmp-buffer', lazy = true },
-    { 'hrsh7th/cmp-path', lazy = true },
-    { 'saadparwaiz1/cmp_luasnip', lazy = true },
-    { 'hrsh7th/cmp-nvim-lua', lazy = true },
+    { 'hrsh7th/nvim-cmp' },
+    { 'hrsh7th/cmp-nvim-lsp' },
+    { 'hrsh7th/cmp-buffer' },
+    { 'hrsh7th/cmp-path' },
+    { 'saadparwaiz1/cmp_luasnip' },
+    { 'hrsh7th/cmp-nvim-lua' },
 
     -- Snippets
-    { 'L3MON4D3/LuaSnip', lazy = true },
-    { 'rafamadriz/friendly-snippets', lazy = true },
+    { 'L3MON4D3/LuaSnip' },
+    { 'rafamadriz/friendly-snippets' },
 
 }
 
