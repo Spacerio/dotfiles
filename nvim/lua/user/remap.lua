@@ -15,21 +15,25 @@ map('n', '<C-l>', '<C-w>l', opts)
 map('n', '<C-j>', '<C-w>j', opts)
 map('n', '<C-k>', '<C-w>k', opts)
 
+--Better C-u and C-d
+map('n', '<C-d>', '<C-d>zz', opts)
+map('n', '<C-u>', '<C-u>zz', opts)
+
+
 --Source files wih keymap
 map('n', '<leader>s', ':so<cr>', opts)
-
 
 --Telescope
 themes = require('telescope.themes')
 builtin = require('telescope.builtin')
 compact_dropdown = themes.get_dropdown{previewer = false}
 
-map('n', '<C-p>', ":lua builtin.fd(compact_dropdown)<cr>", opts) 
+map('n', '<C-p>', ":lua builtin.fd(compact_dropdown)<cr>", opts)
 map('n', '<C-n>', ":Telescope builtin<cr>", opts)
 map('n', '<leader>f', ":lua builtin.live_grep(themes.get_ivy())<cr>", opts)
 
---Lazy.nvim
 map('n', '<leader>l', ':Lazy<cr>', opts)
+map('n', '<leader>h', ':Trouble<cr>', opts)
 
 
 --Lsp

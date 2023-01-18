@@ -37,11 +37,12 @@ cmp.setup({
 	},
 
 	sources = cmp.config.sources({
-		{ name = 'nvim_lsp', group_index = 1 },
+		{ name = 'nvim_lsp' },
 		{ name = 'nvim_lua' },
 		{ name = 'buffer' },
 		{ name = 'path' },
 		{ name = 'luasnip' },
+		{ name = 'plugins' },
 	}),
 
 	view = {
@@ -65,7 +66,7 @@ cmp.setup({
 		["<C-b>"] = cmp.mapping(cmp.mapping.scroll_docs(-1), { "i", "c" }),
 		["<C-f>"] = cmp.mapping(cmp.mapping.scroll_docs(1), { "i", "c" }),
 		["<CR>"] = cmp.mapping.confirm { select = true },
-		["<M-l>"] = cmp.mapping {
+		["<C-l>"] = cmp.mapping {
 			i = cmp.mapping.abort(),
 			c = cmp.mapping.close(),
 		},
@@ -83,6 +84,8 @@ cmp.setup({
 				path = "[Path]",
 				crates = "[Crates]",
 				copilot = "[Copilot]",
+				cmdline = "[Cmdline]",
+				plugins = "[plugin]",
 			})[entry.source.name]
 			return vim_item
 		end,
