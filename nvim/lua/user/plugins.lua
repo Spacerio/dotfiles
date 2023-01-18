@@ -21,6 +21,10 @@ local plugins = {
 		end
 	},
 
+	{ 'nvim-tree/nvim-web-devicons' },
+
+
+	--LSP
 	{ 'neovim/nvim-lspconfig' },
     { 'williamboman/mason.nvim' },
     { 'williamboman/mason-lspconfig.nvim' },
@@ -41,7 +45,6 @@ local plugins = {
     -- Snippets
     { 'L3MON4D3/LuaSnip' },
     { 'rafamadriz/friendly-snippets' },
-
 }
 
 return plugins

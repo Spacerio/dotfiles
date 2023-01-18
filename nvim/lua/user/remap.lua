@@ -32,20 +32,20 @@ map('n', '<leader>f', ":lua builtin.live_grep(themes.get_ivy())<cr>", opts)
 map('n', '<leader>l', ':Lazy<cr>', opts)
 
 
---Lsp, potentiallly 
-map('n', 'K', '<cmd>lua vim.lsp.buf.hover()<cr>', opts)
-map('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<cr>', opts)
-map('n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<cr>', opts)
-map('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<cr>', opts)
-map('n', 'go', '<cmd>lua vim.lsp.buf.type_definition()<cr>', opts)
-map('n', 'gr', '<cmd>lua vim.lsp.buf.references()<cr>', opts)
-map('n', '<C-k>', '<cmd>lua vim.lsp.buf.signature_help()<cr>', opts)
-map('n', '<F2>', '<cmd>lua vim.lsp.buf.rename()<cr>', opts)
-map('n', '<F4>', '<cmd>lua vim.lsp.buf.code_action()<cr>', opts)
-map('x', '<F4>', '<cmd>lua vim.lsp.buf.range_code_action()<cr>', opts)
+--Lsp
+map('n', 'K', '<cmd>lua vim.lsp.buf.hover()<cr>', remap)
+map('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<cr>', remap)
+map('n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<cr>', remap)
+map('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<cr>', remap)
+map('n', 'go', '<cmd>lua vim.lsp.buf.type_definition()<cr>', remap)
+map('n', 'gr', '<cmd>lua vim.lsp.buf.references()<cr>', remap)
+map('n', '<C-k>', '<cmd>lua vim.lsp.buf.signature_help()<cr>', remap)
+map('n', '<F2>', '<cmd>lua vim.lsp.buf.rename()<cr>', remap)
+map('n', '<F4>', '<cmd>lua vim.lsp.buf.code_action()<cr>', remap)
+map('x', '<F4>', '<cmd>lua vim.lsp.buf.range_code_action()<cr>', remap)
 
 -- Diagnostics
 
-map('n', 'gl', '<cmd>lua vim.diagnostic.open_float()<cr>', opts)
-map('n', '[d', '<cmd>lua vim.diagnostic.goto_prev()<cr>', opts)
-map('n', ']d', '<cmd>lua vim.diagnostic.goto_next()<cr>', opts)
+map('n', 'gl', '<cmd>lua vim.diagnostic.open_float()<cr>', remap)
+map('n', '[d', '<cmd>lua vim.diagnostic.goto_prev()<cr>', remap)
+map('n', ']d', '<cmd>lua vim.diagnostic.goto_next()<cr>', remap)
