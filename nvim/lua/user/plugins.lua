@@ -41,6 +41,13 @@ local plugins = {
 			require('user.plugins.gitsigns')
 		end
 	},
+	{
+		'nvim-lualine/lualine.nvim',
+		event = "VeryLazy",
+		config = function ()
+			require('user.plugins.lualine')
+		end
+	},
 
 	--LSP
 	{ 'neovim/nvim-lspconfig',
