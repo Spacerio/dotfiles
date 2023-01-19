@@ -12,4 +12,17 @@ gitsigns.setup({
 	numhl = false,
 	linehl = false,
 	word_diff = true,
+	watch_gitdir = {
+		interval = 1000,
+		follow_files = true
+	},
+	attach_to_untracked = true,
+	current_line_blame = false,
+	current_line_blame_opts = {
+		virt_text = true,
+		virt_text_pos = "right_align",
+		delay = 1,
+		ignore_whitespace = false,
+	},
+	trouble = true,
 })
