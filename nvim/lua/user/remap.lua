@@ -35,7 +35,7 @@ compact_dropdown = themes.get_dropdown{previewer = false}
 
 map('n', '<C-p>', ":lua builtin.fd(compact_dropdown)<cr>", opts)
 map('n', '<C-n>', ":Telescope builtin<cr>", opts)
-map('n', '<leader>f', ":lua builtin.live_grep(themes.get_ivy())<cr>", opts)
+map('n', '<C-f>', ":lua builtin.live_grep(themes.get_ivy())<cr>", opts)
 
 --Lsp
 map('n', 'K', '<cmd>lua vim.lsp.buf.hover()<cr>', remap)
