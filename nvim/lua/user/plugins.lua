@@ -6,55 +6,73 @@ local plugins = {
 		config = function()
 			require('user.color')
 		end
-
 	},
-
-	{ 'nvim-lua/plenary.nvim' },
-	{ 'nvim-telescope/telescope.nvim' },
 
 	{
 		'nvim-treesitter/nvim-treesitter',
 		build = ":TSUpdate",
-		priority = 10,
+		event = 'VeryLazy',
 		config = function()
 			require('user.plugins.treesitter')
 		end
 	},
 
+	{ 'nvim-lua/plenary.nvim' },
+	{ 'nvim-telescope/telescope.nvim' },
 	{ 'nvim-tree/nvim-web-devicons' },
 	{ 'muniftanjim/nui.nvim' },
-	{ 'nvim-neo-tree/neo-tree.nvim' },
-
-
-	{ 'folke/trouble.nvim' },
+	{
+		'nvim-neo-tree/neo-tree.nvim',
+		cmd = "Neotree"
+	},
+	{
+		'folke/trouble.nvim',
+		cmd = "Trouble"
+	},
+	{
+		'windwp/nvim-autopairs',
+		event = "InsertEnter",
+		config = { map_c_h = true, map_c_w = true }
+	},
 
 	--LSP
-	{ 'neovim/nvim-lspconfig' },
-    { 'williamboman/mason.nvim' },
-    { 'williamboman/mason-lspconfig.nvim' },
-    -- Autocompletion
-	{ 'hrsh7th/nvim-cmp',
+	{ 'neovim/nvim-lspconfig',
+		event = 'VeryLazy',
 		config = function()
 			require('user.lsp')
+		end,
+		dependencies = {
+			{ 'williamboman/mason.nvim' },
+			{ 'williamboman/mason-lspconfig.nvim' },
+		}
+	},
+	{ 'hrsh7th/nvim-cmp',
+		event = "InsertEnter",
+		config = function()
+			require('user.lsp.cmp')
+		end,
+		dependencies = {
+			{ 'hrsh7th/cmp-nvim-lsp' },
+			{ 'hrsh7th/cmp-buffer' },
+			{ 'hrsh7th/cmp-path' },
+			{ 'hrsh7th/cmp-cmdline' },
+			{ 'saadparwaiz1/cmp_luasnip' },
+			{ 'hrsh7th/cmp-nvim-lua' },
+			{ 'kadobot/cmp-plugins', config = true },
+			{ 'chrisgrieser/cmp-nerdfont' },
+			{ 'L3MON4D3/LuaSnip' },
+			{ 'rafamadriz/friendly-snippets' },
+		}
+	},
+	{ 'lewis6991/gitsigns.nvim',
+		event = "BufWinEnter",
+		config = function()
+			require('user.plugins.gitsigns')
 		end
 	},
-	{ 'hrsh7th/cmp-nvim-lsp' },
-	{ 'hrsh7th/cmp-buffer' },
-	{ 'hrsh7th/cmp-path' },
-	{ 'hrsh7th/cmp-cmdline' },
-	{ 'saadparwaiz1/cmp_luasnip' },
-	{ 'hrsh7th/cmp-nvim-lua' },
-	{ 'kadobot/cmp-plugins', config = function ()
-		require('cmp-plugins').setup({
-			--files = { "/home/user/.dotfiles/nvim/lua/user/plugins.lua" }
-			files = { ".*\\.lua" }
-		})
-		end
-	},
-
-    -- Snippets
-    { 'L3MON4D3/LuaSnip' },
-    { 'rafamadriz/friendly-snippets' },
 }
 
 return plugins
+
+
+

@@ -110,3 +110,5 @@ cmp.setup.cmdline(':', {
 			{ name = 'cmdline' }
 		})
 })
+
+require("user.lsp.snip")
