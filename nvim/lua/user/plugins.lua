@@ -22,6 +22,9 @@ local plugins = {
 	},
 
 	{ 'nvim-tree/nvim-web-devicons' },
+	{ 'muniftanjim/nui.nvim' },
+	{ 'nvim-neo-tree/neo-tree.nvim' },
+
 
 	{ 'folke/trouble.nvim' },
 
