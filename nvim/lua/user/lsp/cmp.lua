@@ -43,6 +43,7 @@ cmp.setup({
 		{ name = 'path' },
 		{ name = 'luasnip' },
 		{ name = 'plugins' },
+		{ name = 'nerdfont' },
 	}),
 
 	view = {
@@ -76,23 +77,22 @@ cmp.setup({
 		fields = { "kind", "abbr", "menu" },
 		format = function(entry, vim_item)
 			-- vim_item.kind = string.format("%s", icons[vim_item.kind])
-			vim_item.kind = string.format('%s %s', icons[vim_item.kind], vim_item.kind) -- This concatonates the icons with the name of the item kind
+			vim_item.kind = string.format('%s ', icons[vim_item.kind]) -- This concatonates the icons with the name of the item kind
 			vim_item.menu = ({
-				nvim_lsp = "[LSP]",
-				luasnip = "[Snippet]",
-				buffer = "[Buffer]",
+				nvim_lsp = "",
+				luasnip = " ",
+				buffer = "﬘",
 				path = "[Path]",
-				crates = "[Crates]",
-				copilot = "[Copilot]",
-				cmdline = "[Cmdline]",
-				plugins = "[plugin]",
+				crates = "",
+				copilot = "",
+				cmdline = "",
+				plugins = "ﮣ",
+				nerdfont = "[NF]"
 			})[entry.source.name]
 			return vim_item
 		end,
 	},
 })
-
-
 
 cmp.setup.cmdline({ '/', '?' }, {
 	mapping = cmp.mapping.preset.cmdline(),
