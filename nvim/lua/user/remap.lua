@@ -48,9 +48,10 @@ map('n', 'gr', '<cmd>lua vim.lsp.buf.references()<cr>', remap)
 map('n', '<F2>', '<cmd>lua vim.lsp.buf.rename()<cr>', remap)
 map('n', '<F4>', '<cmd>lua vim.lsp.buf.code_action()<cr>', remap)
 map('x', '<F4>', '<cmd>lua vim.lsp.buf.range_code_action()<cr>', remap)
-
 -- Diagnostics
-
 map('n', 'gl', '<cmd>lua vim.diagnostic.open_float()<cr>', remap)
 map('n', '[d', '<cmd>lua vim.diagnostic.goto_prev()<cr>', remap)
 map('n', ']d', '<cmd>lua vim.diagnostic.goto_next()<cr>', remap)
+
+--Terminal window, visual glitches
+map('n', '<leader>t', ':vs<cr>:terminal<cr>i', opts)
