@@ -7,8 +7,8 @@ vim.g.mapleader = " "
 
 --plugin specific
 map('n', '<leader>l', ':Lazy<cr>', opts)
-map('n', '<leader>h', ':Trouble<cr>', opts)
-map('n', '<leader>e', ':Neotree<cr>', opts)
+map('n', '<leader>h', ':TroubleToggle<cr>', opts)
+map('n', '<leader>e', ':Neotree toggle<cr>', opts)
 
 --Buffer navigation
 map('n', 'L', ':bn<cr>', opts)
