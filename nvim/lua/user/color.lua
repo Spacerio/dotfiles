@@ -5,6 +5,10 @@ function color(color, transparent)
 	if color == "tokyonight-night" then
 		require('tokyonight').setup({
 			transparent_backround = true,
+			styles = {
+				comments = { italic = false },
+				keywords = { italic = false },
+			}
 		})
 	end
 
@@ -20,7 +24,7 @@ function color(color, transparent)
 		vim.api.nvim_set_hl(0, "Normal", {bg="none"})
 		vim.api.nvim_set_hl(0, "NormalFloat", {bg="none"})
 		vim.api.nvim_set_hl(0, "NormalNC", {bg="none"})
-		vim.api.nvim_set_hl(0, "LazyNormal", {bg="#513c69"})
+		vim.api.nvim_set_hl(0, "LazyNormal", {bg="#1E1E2E"})
 	end
 end
 

@@ -7,6 +7,7 @@ local plugins = {
 			require('user.color')
 		end,
 	},
+	{ 'catppuccin/nvim', lazy = false, },
 	{
 		'nvim-treesitter/nvim-treesitter',
 		build = ":TSUpdate",
