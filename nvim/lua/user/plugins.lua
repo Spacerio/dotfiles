@@ -52,6 +52,19 @@ local plugins = {
 			require('user.plugins.lualine')
 		end
 	},
+	{
+		'folke/noice.nvim',
+		event = "VeryLazy",
+		config = function()
+			require('user.plugins.noice')
+		end,
+		dependencies = {
+			{
+				'rcarriga/nvim-notify',
+				config = { background_colour = '#000000' }
+			},
+		}
+	},
 
 	--LSP
 	{ 'neovim/nvim-lspconfig',
