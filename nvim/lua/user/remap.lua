@@ -1,5 +1,5 @@
 local opts = {noremap = true, silent = true}
-local remap = {noremap = false, silent = true}
+local remap = {silent = true}
 local map = vim.api.nvim_set_keymap
 
 map("", "<Space>", "<Nop>", opts)
@@ -7,7 +7,7 @@ vim.g.mapleader = " "
 
 --plugin specific
 map('n', '<leader>l', ':Lazy<cr>', opts)
-map('n', '<leader>h', ':TroubleToggle<cr>', opts)
+map('n', '<leader>h', ':<cr>', opts)
 map('n', '<leader>e', ':Neotree toggle<cr>', opts)
 
 --Buffer navigation
@@ -35,7 +35,7 @@ compact_dropdown = themes.get_dropdown{previewer = false}
 
 map('n', '<C-p>', ":lua builtin.fd(compact_dropdown)<cr>", opts)
 map('n', '<C-n>', ":Telescope builtin<cr>", opts)
-map('n', '<C-f>', ":lua builtin.live_grep(themes.get_ivy())<cr>", opts)
+map('n', '<C-g>', ":lua builtin.live_grep(themes.get_ivy())<cr>", opts)
 
 --Lsp
 map('n', 'K', '<cmd>lua vim.lsp.buf.hover()<cr>', remap)
@@ -49,7 +49,7 @@ map('n', '<F2>', '<cmd>lua vim.lsp.buf.rename()<cr>', remap)
 map('n', '<F4>', '<cmd>lua vim.lsp.buf.code_action()<cr>', remap)
 map('x', '<F4>', '<cmd>lua vim.lsp.buf.range_code_action()<cr>', remap)
 -- Diagnostics
-map('n', 'gl', '<cmd>lua vim.diagnostic.open_float()<cr>', remap)
+map('n', 'gl', '<cmd>TroubleToggle<cr>', remap)
 map('n', '[d', '<cmd>lua vim.diagnostic.goto_prev()<cr>', remap)
 map('n', ']d', '<cmd>lua vim.diagnostic.goto_next()<cr>', remap)
 
