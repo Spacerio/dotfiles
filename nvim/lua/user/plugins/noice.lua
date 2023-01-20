@@ -17,5 +17,5 @@ require('noice').setup({
 	notify = {
 		enabled = true,
 		view = "notify"
-	}
+	},
 })

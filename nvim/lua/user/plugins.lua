@@ -19,9 +19,14 @@ local plugins = {
 	{
 		'nvim-telescope/telescope.nvim',
 		event = "VeryLazy",
+		config = function ()
+			require('user.plugins.telescope')
+		end,
 		dependencies = {
+			{
 			'nvim-telescope/telescope-frecency.nvim',
 			dependencies = { "kkharji/sqlite.lua" }
+			}
 		}
 	},
 	{ 'nvim-tree/nvim-web-devicons' },
@@ -32,7 +37,7 @@ local plugins = {
 	},
 	{
 		'folke/trouble.nvim',
-		cmd = "TroubleToggle"
+		cmd = "TroubleToggle",
 	},
 	{
 		'windwp/nvim-autopairs',
