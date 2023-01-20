@@ -18,7 +18,11 @@ local plugins = {
 	{ 'nvim-lua/plenary.nvim' },
 	{
 		'nvim-telescope/telescope.nvim',
-		event = "VeryLazy"
+		event = "VeryLazy",
+		dependencies = {
+			'nvim-telescope/telescope-frecency.nvim',
+			dependencies = { "kkharji/sqlite.lua" }
+		}
 	},
 	{ 'nvim-tree/nvim-web-devicons' },
 	{ 'muniftanjim/nui.nvim' },
