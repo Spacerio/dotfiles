@@ -1,4 +1,11 @@
-local cmp = require'cmp'
+local cmp = require('cmp')
+local luasnip = require('luasnip')
+
+local has_words_before = function()
+  unpack = unpack or table.unpack
+  local line, col = unpack(vim.api.nvim_win_get_cursor(0))
+  return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
+end
 
 local icons = {
   Text = "",
@@ -63,7 +70,10 @@ cmp.setup({
 	},
 
 	mapping = cmp.mapping.preset.insert({
-		["<C-p>"] = cmp.mapping{ i = cmp.mapping.select_prev_item()},
+		["<C-p>"] = cmp.mapping{
+			i = cmp.mapping.select_prev_item(),
+			c = cmp.config.disable,
+		},
 		["<C-n>"] = cmp.mapping.select_next_item(),
 		["<C-b>"] = cmp.mapping(cmp.mapping.scroll_docs(-1), { "i", "c" }),
 		["<C-f>"] = cmp.mapping(cmp.mapping.scroll_docs(1), { "i", "c" }),
@@ -73,27 +83,22 @@ cmp.setup({
 			c = cmp.mapping.close(),
 		},
 		["<Tab>"] = cmp.mapping(function(fallback)
-			if cmp.visible() then
-				cmp.select_next_item()
-				-- You could replace the expand_or_jumpable() calls with expand_or_locally_jumpable() 
-				-- they way you will only jump inside the snippet region
-			elseif luasnip.expand_or_locally_jumpable() then
+			if luasnip.expand_or_locally_jumpable() then
 				luasnip.expand_or_jump()
 			elseif has_words_before() then
-				cmp.complete()
-			else
-				fallback()
+				if cmp.visible() then
+					local entry = cmp.get_selected_entry()
+				if not entry then
+						cmp.select_next_item()
+					else
+						cmp.confirm()
+					end
+					cmp.complete()
+				else
+					fallback()
+				end
 			end
-		end, { "i", "s" }),
-		["<S-Tab>"] = cmp.mapping(function(fallback)
-			if cmp.visible() then
-				cmp.select_prev_item()
-			elseif luasnip.jumpable(-1) then
-				luasnip.jump(-1)
-			else
-				fallback()
-			end
-		end, { "i", "s" }),
+		end, { "i", "s" })
 	}),
 
 	formatting = {
