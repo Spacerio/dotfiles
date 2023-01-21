@@ -14,6 +14,7 @@ function color(color, transparent)
 
 	if color == "catppuccin" then
 		require('catppuccin').setup({
+			flavour = "mocha",
 			transparent = true,
 		})
 	end
@@ -27,5 +28,3 @@ function color(color, transparent)
 		vim.api.nvim_set_hl(0, "LazyNormal", {bg="#1E1E2E"})
 	end
 end
-
-color()

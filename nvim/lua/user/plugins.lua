@@ -1,13 +1,17 @@
 local plugins = {
 	{
 		"folke/tokyonight.nvim",
+	},
+	{
+		'catppuccin/nvim',
+		name = "catppuccin",
 		lazy = false,
 		priority = 1000,
-		config = function ()
+		config = function()
 			require('user.color')
+			color("catppuccin")
 		end,
 	},
-	{ 'catppuccin/nvim', lazy = false, },
 	{
 		'nvim-treesitter/nvim-treesitter',
 		build = ":TSUpdate",
