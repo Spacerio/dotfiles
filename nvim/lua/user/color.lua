@@ -1,5 +1,5 @@
 function color(color, transparent)
-	transparent = transparent or false
+	transparent = transparent or true
 	color = color or "tokyonight-night"
 
 	if color == "tokyonight-night" then

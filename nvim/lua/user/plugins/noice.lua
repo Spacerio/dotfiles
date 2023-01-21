@@ -18,4 +18,7 @@ require('noice').setup({
 		enabled = true,
 		view = "notify"
 	},
+	messages = {
+		view_search = "mini"
+	},
 })
