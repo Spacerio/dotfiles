@@ -86,17 +86,9 @@ cmp.setup({
 			if luasnip.expand_or_locally_jumpable() then
 				luasnip.expand_or_jump()
 			elseif has_words_before() then
-				if cmp.visible() then
-					local entry = cmp.get_selected_entry()
-				if not entry then
-						cmp.select_next_item()
-					else
-						cmp.confirm()
-					end
-					cmp.complete()
-				else
-					fallback()
-				end
+				cmp.mapping.confirm { select = true }
+			else
+				fallback()
 			end
 		end, { "i", "s" })
 	}),
