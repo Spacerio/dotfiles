@@ -1,5 +1,5 @@
 function color(color, transparent)
-	transparent = transparent or true
+	transparent = transparent or false
 	color = color or "tokyonight-night"
 
 	if color == "tokyonight-night" then
@@ -16,6 +16,13 @@ function color(color, transparent)
 		require('catppuccin').setup({
 			flavour = "mocha",
 			transparent = true,
+			no_italic = true,
+			integrations = {
+				treesitter = true,
+				noice = true,
+				notify = true,
+				neotree = true,
+			}
 		})
 	end
 

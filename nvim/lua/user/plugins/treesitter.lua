@@ -10,6 +10,7 @@ configs.setup({
 	highlight = {
 		enable = true, -- false will disable the whole extension
 		disable = { "markdown" }, -- list of language that will be disabled
+		additional_vim_regex_highlighting = false,
 	},
 	autopairs = {
 		enable = true,
