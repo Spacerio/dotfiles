@@ -51,7 +51,7 @@ map('n', 'gh', '<cmd>lua vim.lsp.buf.rename()<cr>', remap)
 map('n', '<gs>', '<cmd>lua vim.lsp.buf.code_action()<cr>', remap)
 map('x', '<gs>', '<cmd>lua vim.lsp.buf.range_code_action()<cr>', remap)
 -- Diagnostics
-map('n', 'gl', '<cmd>troubletoggle<cr>', remap)
+map('n', 'gl', '<cmd>TroubleToggle<cr>', remap)
 map('n', '[d', '<cmd>lua vim.diagnostic.goto_prev()<cr>', remap)
 map('n', ']d', '<cmd>lua vim.diagnostic.goto_next()<cr>', remap)
 
