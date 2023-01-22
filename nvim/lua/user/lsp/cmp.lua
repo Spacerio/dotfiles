@@ -77,7 +77,7 @@ cmp.setup({
 		["<C-n>"] = cmp.mapping.select_next_item(),
 		["<C-b>"] = cmp.mapping(cmp.mapping.scroll_docs(-1), { "i", "c" }),
 		["<C-f>"] = cmp.mapping(cmp.mapping.scroll_docs(1), { "i", "c" }),
-		["<CR>"] = cmp.mapping.confirm { select = true },
+		["<CR>"] = cmp.mapping.confirm { select = false },
 		["<C-l>"] = cmp.mapping {
 			i = cmp.mapping.abort(),
 			c = cmp.mapping.close(),
@@ -86,11 +86,11 @@ cmp.setup({
 			if luasnip.expand_or_locally_jumpable() then
 				luasnip.expand_or_jump()
 			elseif has_words_before() then
-				cmp.mapping.confirm { select = true }
-			else
+				cmp.confirm { select = true }
+			else 
 				fallback()
-			end
-		end, { "i", "s" })
+			end 
+		end, { "i", "s" }) 
 	}),
 
 	formatting = {
