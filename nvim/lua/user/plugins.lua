@@ -81,6 +81,11 @@ local plugins = {
 		event = "VeryLazy",
 		--config = require("user.plugins.harpoon")
 	},
+	{
+		'ray-x/lsp_signature.nvim',
+		event = 'InsertEnter',
+		config = true,
+	},
 
 	--LSP
 	{ 'neovim/nvim-lspconfig',
