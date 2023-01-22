@@ -7,6 +7,7 @@ vim.g.mapleader = " "
 
 --plugin specific
 map('n', '<leader>l', ':Lazy<cr>', opts)
+map('n', '<leader>m', ':Mason<cr>', opts)
 map('n', '<leader>h', ':<cr>', opts)
 map('n', '<leader>e', ':Neotree toggle<cr>', opts)
 
