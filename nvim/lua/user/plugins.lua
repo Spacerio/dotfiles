@@ -64,6 +64,7 @@ local plugins = {
 	},
 	{
 		'folke/noice.nvim',
+		enabled = false,
 		event = "VeryLazy",
 		config = function()
 			require('user.plugins.noice')
