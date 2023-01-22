@@ -15,7 +15,7 @@ local lsp_remaps = function(bufnr)
 	map('n', 'go', '<cmd>lua vim.lsp.buf.type_definition()<cr>')
 	map('n', 'gr', '<cmd>lua builtin.lsp_references()<cr>')
 	map('n', 'gh', '<cmd>lua vim.lsp.buf.rename()<cr>')
-	map('n', 'gs', '<cmd>lua vim.lsp.buf.code_action()<cr>')
+	vim.keymap.set('n', 'gs', '<cmd>lua vim.lsp.buf.code_action()<cr>', { remap = true, buffer = bufnr })
 	map('x', 'gs', '<cmd>lua vim.lsp.buf.range_code_action()<cr>')
 	-- Diagnostics
 	map('n', 'gl', '<cmd>TroubleToggle<cr>')
@@ -23,8 +23,8 @@ local lsp_remaps = function(bufnr)
 	map('n', ']d', '<cmd>lua vim.diagnostic.goto_next()<cr>')
 end
 
-local lsp_attach = function()
-
+local function lsp_attach(client, bufnr)
+	lsp_remaps(bufnr)
 end
 
 local lspconfig = require('lspconfig')
