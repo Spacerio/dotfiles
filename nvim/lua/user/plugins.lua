@@ -75,6 +75,11 @@ local plugins = {
 			},
 		}
 	},
+	{
+		'theprimeagen/harpoon',
+		event = "VeryLazy",
+		--config = require("user.plugins.harpoon")
+	},
 
 	--LSP
 	{ 'neovim/nvim-lspconfig',
