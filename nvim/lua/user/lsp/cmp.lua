@@ -90,7 +90,11 @@ cmp.setup({
 			else 
 				fallback()
 			end 
-		end, { "i", "s" }) 
+		end, { "i", "s" }),
+		["<S-Tab>"] = cmp.mapping(function ()
+				luasnip.jump(-1)
+		end
+		),
 	}),
 
 	formatting = {
@@ -130,5 +134,11 @@ cmp.setup.cmdline(':', {
 			{ name = 'cmdline' }
 		})
 })
+
+local cmp_autopairs = require('nvim-autopairs.completion.cmp')
+cmp.event:on(
+  'confirm_done',
+  cmp_autopairs.on_confirm_done()
+)
 
 require("user.snip")
