@@ -25,8 +25,14 @@ znap source zdharma-continuum/fast-syntax-highlighting
 znap function _pyenv pyenv 'eval "$( pyenv init - --no-rehash )"'
 compctl -K    _pyenv pyenv
 
+# Load bash profile
 [[ -e ~/.profile ]] && emulate sh -c 'source ~/.profile'
 
+# Enable history 
+HISTFILE=~/.zsh-history
+HISTSIZE=1000
+SAVEHIST=1000
+setopt appendhistory
 
 timezsh() {
   shell=${1-$SHELL}
