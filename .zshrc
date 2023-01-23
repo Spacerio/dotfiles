@@ -1,3 +1,7 @@
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
 # Download Znap, if it's not there yet.
 [[ -f ~/Git/zsh-snap/znap.zsh ]] ||
     git clone --depth 1 -- \
@@ -5,8 +9,10 @@
 
 source ~/Git/zsh-snap/znap.zsh  # Start Znap
 
+
 # `znap prompt` makes your prompt visible in just 15-40ms!
-znap prompt sindresorhus/pure
+znap prompt romkatv/powerlevel10k
+
 
 # `znap source` automatically downloads and starts your plugins.
 znap source marlonrichert/zsh-autocomplete
@@ -21,9 +27,13 @@ compctl -K    _pyenv pyenv
 
 [[ -e ~/.profile ]] && emulate sh -c 'source ~/.profile'
 
+
 timezsh() {
   shell=${1-$SHELL}
   for i in $(seq 1 10); do /usr/bin/time $shell -i -c exit; done
 }
 
-eval "$(zoxide init zsh)"
+znap eval zoxide "zoxide init zsh"
+
+
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
