@@ -50,6 +50,6 @@ alias la='ls -A'
 alias ll='ls -alF'
 alias ls='ls --color=auto'
 alias sl="ls"
-alias ..="../.."
-alias ...="../../.."
-alias ....="../../../.."
+alias ..="cd .."
+alias ...="cd ../.."
+alias ....="cd ../../.."
