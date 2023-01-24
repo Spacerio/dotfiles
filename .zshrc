@@ -41,5 +41,12 @@ timezsh() {
 
 znap eval zoxide "zoxide init zsh"
 
-
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+# Bind <M-j> and <M-k> to <Up> and <Down>
+bindkey -s 'j' 'OB'
+bindkey -s 'k' 'OA'
+
+# Open Neovim with <M-n>
+bindkey -s '^[o' 'nvim $(sk)^M'
+bindkey -s '^[n' 'nvim'
