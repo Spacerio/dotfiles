@@ -13,7 +13,6 @@ source ~/Git/zsh-snap/znap.zsh  # Start Znap
 # `znap prompt` makes your prompt visible in just 15-40ms!
 znap prompt romkatv/powerlevel10k
 
-
 # `znap source` automatically downloads and starts your plugins.
 znap source marlonrichert/zsh-autocomplete
 znap source zsh-users/zsh-autosuggestions
