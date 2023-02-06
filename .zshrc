@@ -2,13 +2,16 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
+if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
+  exec tmux
+fi
+
 # Download Znap, if it's not there yet.
 [[ -f ~/Git/zsh-snap/znap.zsh ]] ||
     git clone --depth 1 -- \
         https://github.com/marlonrichert/zsh-snap.git ~/Git/zsh-snap
 
 source ~/Git/zsh-snap/znap.zsh  # Start Znap
-
 
 # `znap prompt` makes your prompt visible in just 15-40ms!
 znap prompt romkatv/powerlevel10k
@@ -41,6 +44,11 @@ timezsh() {
 znap eval zoxide "zoxide init zsh"
 
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+if ! fd &> /dev/null
+then 
+	export FZF_DEFAULT_COMMAND='fd -H -E .git .'
+fi
 
 # Bind <M-j> and <M-k> to <Up> and <Down>
 bindkey -s 'j' 'OB'
