@@ -45,7 +45,7 @@ znap eval zoxide "zoxide init zsh"
 
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-if ! fd &> /dev/null
+if fd &> /dev/null
 then 
 	export FZF_DEFAULT_COMMAND='fd -H -E .git .'
 fi
