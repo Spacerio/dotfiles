@@ -44,7 +44,6 @@ alias stmux='tmux source ~/.tmux.conf'
 alias ta='tmux a'
 alias apexconfig='cd /mnt/c/Program Files (x86)/Steam/steamapps/common/Apex Legends/cfg'
 alias ghc='git clone https://github.com/' 
-alias nvim='nvim.appimage'
 alias l='ls -CF'
 alias la='ls -A'
 alias ll='ls -alF'
@@ -56,3 +55,6 @@ alias ....="cd ../../.."
 alias s="sk --preview='bat {} --color=always'"
 alias ns="nvim -c SessionsLoad"
 alias so="exec zsh"
+# alias nvim='nvim.appimage'
+
+if [ -e /home/user/.nix-profile/etc/profile.d/nix.sh ]; then . /home/user/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
