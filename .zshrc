@@ -22,8 +22,8 @@ znap source zdharma-continuum/fast-syntax-highlighting
 # `znap eval` caches and runs any kind of command output for you.
 
 # `znap function` lets you lazy-load features you don't always need.
-znap function _pyenv pyenv 'eval "$( pyenv init - --no-rehash )"'
-compctl -K    _pyenv pyenv
+# znap function _pyenv pyenv 'eval "$( pyenv init - --no-rehash )"'
+# compctl -K    _pyenv pyenv
 
 # Load bash profile
 [[ -e ~/.profile ]] && emulate sh -c 'source ~/.profile'
@@ -33,6 +33,8 @@ HISTFILE=~/.zsh-history
 HISTSIZE=1000
 SAVEHIST=1000
 setopt appendhistory
+
+fpath+=~/.zfunc
 
 timezsh() {
   shell=${1-$SHELL}

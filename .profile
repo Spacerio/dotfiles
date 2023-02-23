@@ -33,7 +33,7 @@ then
     export FZF_DEFAULT_COMMAND='fd -H -E .git .'
 fi
 
-. "$HOME/.cargo/env"
+# . "$HOME/.cargo/env"
 
 alias cls='clear'
 alias winuser='cd /mnt/c/Users/Omistaja'

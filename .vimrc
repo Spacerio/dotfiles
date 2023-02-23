@@ -7,6 +7,7 @@ Plug 'junegunn/fzf.vim'
 call plug#end()
 " PlugUpdate to update 
 
+
 " Better navigation
 nnoremap <C-u> <C-u>zz
 nnoremap <C-d> <C-d>zz
@@ -49,4 +50,4 @@ set noesckeys
 set encoding	=utf-8
 set nowrap
 
-colorscheme gruvbox
+" colorscheme gruvbox
