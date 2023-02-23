@@ -28,6 +28,10 @@ fi
 # PATH="$HOME/bin:$PATH"
 #fi
 
+if fd &> /dev/null
+then 
+    export FZF_DEFAULT_COMMAND='fd -H -E .git .'
+fi
 
 . "$HOME/.cargo/env"
 
@@ -38,6 +42,7 @@ alias e='exit'
 alias alacritty='cd /mnt/c/Users/Omistaja/AppData/Roaming/alacritty'
 alias lg='lazygit'
 alias t='tmux'
+alias ta='tmux attach'
 alias tconfig='nvim ~/.tmux.conf'
 alias v='nvim'
 alias stmux='tmux source ~/.tmux.conf'

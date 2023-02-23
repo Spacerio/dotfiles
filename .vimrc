@@ -1,10 +1,11 @@
 call plug#begin()
-Plug '~/.vim/plugged/gruvbox'
-Plug '~/.vim/plugged/vim-tmux-navigator'
-Plug '~/.vim/plugged/nerdtree'
+Plug 'morhetz/gruvbox'
+Plug 'christoomey/vim-tmux-navigator'
+Plug 'preservim/nerdtree'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 call plug#end()
+" PlugUpdate to update 
 
 " Better navigation
 nnoremap <C-u> <C-u>zz

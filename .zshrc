@@ -2,9 +2,6 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
-  exec tmux
-fi
 
 # Download Znap, if it's not there yet.
 [[ -f ~/Git/zsh-snap/znap.zsh ]] ||
@@ -14,7 +11,8 @@ fi
 source ~/Git/zsh-snap/znap.zsh  # Start Znap
 
 # `znap prompt` makes your prompt visible in just 15-40ms!
-znap prompt romkatv/powerlevel10k
+znap source romkatv/powerlevel10k
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 # `znap source` automatically downloads and starts your plugins.
 znap source marlonrichert/zsh-autocomplete
@@ -43,12 +41,6 @@ timezsh() {
 
 znap eval zoxide "zoxide init zsh"
 
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-
-if fd &> /dev/null
-then 
-	export FZF_DEFAULT_COMMAND='fd -H -E .git .'
-fi
 
 # Bind <M-j> and <M-k> to <Up> and <Down>
 bindkey -s 'j' 'OB'
@@ -61,6 +53,12 @@ bindkey -s '^[n' 'nvim'
 
 if [ -e /home/user/.nix-profile/etc/profile.d/nix.sh ]; then . /home/user/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
 
+bindkey -e
+
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
+  exec tmux attach
+fi
