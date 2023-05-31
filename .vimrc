@@ -4,6 +4,7 @@ Plug 'christoomey/vim-tmux-navigator'
 Plug 'preservim/nerdtree'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
+Plug 'christoomey/vim-tmux-navigator'
 call plug#end()
 " PlugUpdate to update 
 
@@ -14,6 +15,11 @@ nnoremap <C-d> <C-d>zz
 nnoremap <space>s :so %<cr>
 nnoremap <space>e :NERDTree<cr>
 nnoremap <C-p> :Files <cr>
+
+inoremap <C-h> :TmuxNavigateLeft<cr>
+inoremap <C-j> :TmuxNavigateDown<cr>
+inoremap <C-k> :TmuxNavigateUp<cr>
+inoremap <C-l> :TmuxNavigateRight<cr>
 
 let g:NERDTreeShowHidden='1'
 

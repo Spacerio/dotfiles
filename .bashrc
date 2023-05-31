@@ -125,7 +125,7 @@ eval "$(starship init bash)"
 ## Another example Check and load it from ~/.bashrc or ~/.bash_profile ##
 grep -wq '^source /etc/profile.d/bash_completion.sh' ~/.bashrc || echo 'source /etc/profile.d/bash_completion.sh'>>~/.bashrc
 
-# source /home/user/.profile
+source /home/user/.profile
 
 . "$HOME/.cargo/env"
 

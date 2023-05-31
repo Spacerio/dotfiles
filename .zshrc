@@ -16,7 +16,7 @@ znap source romkatv/powerlevel10k
 
 # `znap source` automatically downloads and starts your plugins.
 znap source marlonrichert/zsh-autocomplete
-znap source zsh-users/zsh-autosuggestions
+# znap source zsh-users/zsh-autosuggestions
 znap source zdharma-continuum/fast-syntax-highlighting
 
 # `znap eval` caches and runs any kind of command output for you.
@@ -39,8 +39,7 @@ timezsh() {
   for i in $(seq 1 10); do /usr/bin/time $shell -i -c exit; done
 }
 
-znap eval zoxide "zoxide init zsh"
-
+bindkey -e
 
 # Bind <M-j> and <M-k> to <Up> and <Down>
 bindkey -s 'j' 'OB'
@@ -51,13 +50,27 @@ bindkey -s '^[o' 'nvim $(sk)^M'
 bindkey -s '^[n' 'nvim'
 
 
+# Backwards i-search 
+bindkey -s '' history-incremental-pattern-search-backward
+
+
+# Better history navigation
+bindkey '' up-history
+bindkey '' down-history
+
+fpath+=~/.zfunc
+
+compinit
+
 if [ -e /home/user/.nix-profile/etc/profile.d/nix.sh ]; then . /home/user/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
 
-bindkey -e
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# znap eval zoxide "zoxide init zsh"
+eval "$(zoxide init zsh)"
 
 if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
   exec tmux attach

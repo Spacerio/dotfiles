@@ -35,6 +35,8 @@ fi
 
 . "$HOME/.cargo/env"
 
+PATH=$PATH:~/.local/share/bob/nvim-bin
+
 alias cls='clear'
 alias winuser='cd /mnt/c/Users/Omistaja'
 alias br='br -h'
@@ -60,6 +62,5 @@ alias ....="cd ../../.."
 alias s="sk --preview='bat {} --color=always'"
 alias ns="nvim -c SessionsLoad"
 alias so="exec zsh"
-# alias nvim='nvim.appimage'
 
 if [ -e /home/user/.nix-profile/etc/profile.d/nix.sh ]; then . /home/user/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
