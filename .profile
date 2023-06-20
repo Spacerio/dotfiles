@@ -21,6 +21,7 @@ if [[ -n $SSH_CONNECTION ]]; then
 	export EDITOR='vim'
 else
 	export EDITOR='nvim'
+	export SUDO_EDITOR='/home/user/.local/share/bob/nvim-bin/nvim'
 fi
 
 # set PATH so it includes user's private bin if it exists
@@ -50,7 +51,7 @@ alias v='nvim'
 alias stmux='tmux source ~/.tmux.conf'
 alias ta='tmux a'
 alias apexconfig='cd /mnt/c/Program Files (x86)/Steam/steamapps/common/Apex Legends/cfg'
-alias ghc='git clone https://github.com/' 
+alias ghclone='git clone https://github.com/' 
 alias l='ls -CF'
 alias la='ls -A'
 alias ll='ls -alF'
@@ -62,5 +63,6 @@ alias ....="cd ../../.."
 alias s="sk --preview='bat {} --color=always'"
 alias ns="nvim -c SessionsLoad"
 alias so="exec zsh"
+alias sk="rg --files -L -. | sk --bind 'ctrl-t:execute(nvim {})+abort' --preview 'bat {} --color=always'"
 
 if [ -e /home/user/.nix-profile/etc/profile.d/nix.sh ]; then . /home/user/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
