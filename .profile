@@ -24,10 +24,15 @@ else
 	export SUDO_EDITOR='/home/user/.local/share/bob/nvim-bin/nvim'
 fi
 
+if [ -e /home/user/.nix-profile/etc/profile.d/nix.sh ]; then . /home/user/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
+
 # set PATH so it includes user's private bin if it exists
 #if [ -d "$HOME/bin" ] ; then
 # PATH="$HOME/bin:$PATH"
 #fi
+
+# export NVM_DIR="$HOME/.nvm"
+# [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 
 if fd &> /dev/null
 then 
@@ -64,8 +69,4 @@ alias s="sk --preview='bat {} --color=always'"
 alias ns="nvim -c SessionsLoad"
 alias so="exec zsh"
 alias sk="rg --files -L -. | sk --bind 'ctrl-t:execute(nvim {})+abort' --preview 'bat {} --color=always'"
-
-if [ -e /home/user/.nix-profile/etc/profile.d/nix.sh ]; then . /home/user/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
-
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+alias jyu="ssh laitozz@halava.cc.jyu.fi"

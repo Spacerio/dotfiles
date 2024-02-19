@@ -117,7 +117,7 @@ if ! shopt -oq posix; then
   fi
 fi
 
-eval "$(starship init bash)"
+# eval "$(starship init bash)"
 
 ## source it from ~/.bashrc or ~/.bash_profile ##
 # echo "source /etc/profile.d/bash_completion.sh" >> ~/.bashrc
