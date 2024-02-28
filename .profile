@@ -28,10 +28,15 @@ else
 	export SUDO_EDITOR='/home/user/.local/share/bob/nvim-bin/nvim'
 fi
 
+if [ -e /home/user/.nix-profile/etc/profile.d/nix.sh ]; then . /home/user/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
+
 # set PATH so it includes user's private bin if it exists
 #if [ -d "$HOME/bin" ] ; then
 # PATH="$HOME/bin:$PATH"
 #fi
+
+# export NVM_DIR="$HOME/.nvm"
+# [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 
 if fd &> /dev/null
 then 
