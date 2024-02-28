@@ -9,11 +9,15 @@
 #umask 022
 
 # if running bash
-if [ -n "$BASH_VERSION" ]; then
-	# include .bashrc if it exists
-	if [ -f "$HOME/.bashrc" ]; then
-		. "$HOME/.bashrc"
-	fi
+# if [ -n "$BASH_VERSION" ]; then
+# 	# include .bashrc if it exists
+# 	if [ -f "$HOME/.bashrc" ]; then
+# 		. "$HOME/.bashrc"
+# 	fi
+# fi
+
+if [ $TILIX_ID ] || [ $VTE_VERSION ]; then
+        source /etc/profile.d/vte.sh
 fi
 
 # Preferred editor for local and remote sessions
@@ -64,8 +68,9 @@ alias s="sk --preview='bat {} --color=always'"
 alias ns="nvim -c SessionsLoad"
 alias so="exec zsh"
 alias sk="rg --files -L -. | sk --bind 'ctrl-t:execute(nvim {})+abort' --preview 'bat {} --color=always'"
+alias make="make -s"
 
 if [ -e /home/user/.nix-profile/etc/profile.d/nix.sh ]; then . /home/user/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
 
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+# export NVM_DIR="$HOME/.nvm"
+# [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm

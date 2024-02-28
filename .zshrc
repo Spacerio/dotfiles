@@ -75,3 +75,5 @@ if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] &&
 fi
 
 # zprof
+
+[ -f "/home/user/.ghcup/env" ] && source "/home/user/.ghcup/env" # ghcup-env
