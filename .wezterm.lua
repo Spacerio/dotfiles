@@ -24,6 +24,7 @@ config.window_background_gradient = {
   },
 }
 
+
 config.window_decorations = "RESIZE"
 config.enable_scroll_bar = false
 config.hide_tab_bar_if_only_one_tab = true
@@ -34,5 +35,18 @@ config.window_background_opacity = 0.8
 config.win32_system_backdrop = "Acrylic"
 
 config.default_domain = 'WSL:Ubuntu'
+
+wezterm.gui.enumerate_gpus()
+for _, gpu in ipairs(wezterm.gui.enumerate_gpus()) do
+	if gpu.backend == "Vulkan" then
+		config.webgpu_preferred_adapter = gpu
+		break
+	end
+end
+
+-- wezterm.on("gui-startup", function()
+--   local tab, pane, window = wezterm.mux.spawn_window{}
+--   window:gui_window():maximize()
+-- end)
 
 return config
