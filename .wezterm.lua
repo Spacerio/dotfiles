@@ -15,13 +15,25 @@ config.keys = {
 	}
 }
 
-config.window_background_gradient = {
-	orientation = "Vertical",
-	colors = {
-    '#0f0c29',
-    '#302b63',
-    '#24243e',
-  },
+-- config.window_background_gradient = {
+-- 	orientation = "Vertical",
+-- 	colors = {
+--     '#0f0c29',
+--     '#302b63',
+--     '#24243e',
+--   },
+-- }
+
+config.background = {
+	{
+		source = {
+			File = "C:\\Users\\Omistaja\\img.png"
+		},
+		opacity = 1.0,
+		hsb = {
+			brightness = 0.2,
+		},
+	},
 }
 
 
@@ -32,7 +44,7 @@ config.hide_tab_bar_if_only_one_tab = true
 config.window_close_confirmation = 'NeverPrompt'
 
 config.window_background_opacity = 0.8
-config.win32_system_backdrop = "Acrylic"
+-- config.win32_system_backdrop = "Acrylic"
 
 config.default_domain = 'WSL:Ubuntu'
 
