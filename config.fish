@@ -1,7 +1,4 @@
 if status is-interactive
-    [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-    [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
     # not fish compliant
     # [ -f "/home/user/.ghcup/env" ] && source "/home/user/.ghcup/env" # ghcup-env
 
@@ -10,7 +7,7 @@ if status is-interactive
     end
 
     if command -q fd
-	export FZF_DEFAULT_COMMAND='fd -H -E .git .'
+		export FZF_DEFAULT_COMMAND='fd -H -E .git .'
     end
 
 
