@@ -27,15 +27,23 @@ config.keys = {
 config.background = {
 	{
 		source = {
-			File = "C:\\Users\\Omistaja\\img.png"
+			-- File = "\\\\wsl.localhost\\Ubuntu\\home\\user\\.dotfiles\\imgs\\moon.png"
+			File = "\\\\wsl.localhost\\Ubuntu\\home\\user\\.dotfiles\\imgs\\mountain.png"
 		},
 		opacity = 1.0,
 		hsb = {
 			brightness = 0.2,
 		},
 	},
+	{
+		source = {
+			Color = "black"
+		},
+		opacity = 0.2,
+		width = "100%",
+		height = "100%"
+	}
 }
-
 
 config.window_decorations = "RESIZE"
 config.enable_scroll_bar = false
