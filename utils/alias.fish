@@ -1,3 +1,4 @@
+#!/bin/fish
 alias cls 'clear' -s
 alias winuser 'cd /mnt/c/Users/Omistaja' -s
 alias br 'br -h' -s
