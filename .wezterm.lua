@@ -4,11 +4,6 @@ local config = wezterm.config_builder()
 
 config.keys = {
 	{
-		key = 'B',
-		mods = "SHIFT|CTRL",
-		action = wezterm.action.ToggleFullScreen,
-	},
-	{
 		key = 'R',
 		mods = "SHIFT|CTRL",
 		action = wezterm.action.ReloadConfiguration
