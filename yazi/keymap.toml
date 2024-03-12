@@ -204,8 +204,9 @@ keymap = [
 keymap = [
 	{ on = [ "<C-q>" ],   run = "close",          	desc = "Cancel input" },
 	{ on = [ "<Enter>" ], run = "close --submit", 	desc = "Submit the input" },
-	{ on = [ "<Esc>" ],   run = "escape",         	desc = "Go back the normal mode, or cancel input" },
-	{ on = [ "<C-[>" ],   run = "close",         	desc = "Cancel input" },
+	{ on = [ "<Esc>" ],   run = "close",         	desc = "Go back the normal mode, or cancel input" },
+	{ on = [ "<C-[>" ],   run = "escape",         	desc = "Cancel input" }, # Interpreted as <Esc>
+	{ on = [ "<C-c>" ],   run = "escape",         	desc = "Cancel input" },
 
 	# Mode
 	{ on = [ "i" ], run = "insert",                              desc = "Enter insert mode" },
