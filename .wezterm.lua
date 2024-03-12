@@ -22,8 +22,7 @@ config.keys = {
 config.background = {
 	{
 		source = {
-			-- File = "\\\\wsl.localhost\\Ubuntu\\home\\user\\.dotfiles\\imgs\\moon.png"
-			File = "\\\\wsl.localhost\\Ubuntu\\home\\user\\.dotfiles\\imgs\\mountain.png"
+			File = "\\\\wsl.localhost\\Ubuntu\\home\\user\\.dotfiles\\imgs\\img.png"
 		},
 		opacity = 1.0,
 		hsb = {
