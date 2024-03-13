@@ -7,12 +7,12 @@ if ! test -f $temp
 	exit 0
 end
 set dir (cat $temp)
-set name (path basename $dir | tr . _)
-rm $temp
-
 if ! test -d $dir
 	set dir (path dirname $dir)
 end
+set name (path basename $dir | tr . _)
+rm $temp
+
 
 if test -z $TMUX && test -z $tmux_running
     tmux new-session -s $name -c $dir
