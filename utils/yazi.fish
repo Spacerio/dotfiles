@@ -8,9 +8,6 @@ yazi $wd --chooser-file $temp
 if ! test -f $temp
 	exit 0
 end
-# set file (cat $temp)
-# set dir (path dirname < $temp)
-# set name (path basename $dir | tr . _)
 set dir (cat $temp)
 set name (path basename $dir | tr . _)
 rm $temp
