@@ -1,8 +1,8 @@
 #!/bin/env fish
 
-set paths (string collect (cat ~/.dotfiles/utils/paths))
+set paths (string collect (cat ~/.dotfiles/utils/tmux_dirs))
 
-set paths (fd -t d . (string split " " (echo $paths | sd "~" "/home/user")))
+set paths (fd -d 1 -t d . (string split " " (echo $paths | sd "~" "/home/user")))
 
 if test -z argv
 	set selected $argv[1]
