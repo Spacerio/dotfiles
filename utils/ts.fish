@@ -2,7 +2,8 @@
 
 set paths (string collect (cat ~/.dotfiles/utils/tmux_dirs))
 
-set paths (fd -d 1 -t d . (string split " " (echo $paths | sd "~" "/home/user")))
+set single_dirs /home/user/.config /home/user/projects /home/user/.dotfiles
+set paths (fd -d 1 -t d . (string split " " (echo $paths | sd "~" "/home/user"))) $single_dirs
 
 if test -z argv
 	set selected $argv[1]
