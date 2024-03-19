@@ -1,0 +1,19 @@
+[[verbs]]
+name = "line_down"
+key = "ctrl-n"
+execution = ":line_down"
+
+[[verbs]]
+name = "line_up"
+key = "ctrl-p"
+execution = ":line_up"
+
+[[verbs]]
+internal = ":print_path"
+key = "enter"
+leave_broot = true
+
+[[verbs]]
+name = "up_tree"
+key = "ctrl-h"
+execution = ":up_tree"

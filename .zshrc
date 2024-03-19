@@ -81,3 +81,5 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 [ -f "/home/user/.ghcup/env" ] && source "/home/user/.ghcup/env" # ghcup-env
+
+source /home/user/.config/broot/launcher/bash/br
