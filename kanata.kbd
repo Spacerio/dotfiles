@@ -26,7 +26,6 @@
   tab  q    w    e    r    t    y    u    i    o    p    [    ]
   caps a    s    d    f    g    h    j    k    l    ;    '    \    ret
   lsft lsgt z    x    c    v    b    n    m    ,    .    /    rsft
-  lctl lmet lalt           spc            ralt prnt rctl
 )
 
 ;; The first layer defined is the layer that will be active by default when
@@ -37,7 +36,6 @@
   tab  q    w    e    r    t    y    u    i    o    p    [    ]
   @cap a    s    d    f    g    h    j    k    l    ;    '    \    ret
   lsft lsgt z    x    c    v    b    n    m    ,    .    /    rsft
-  lctl lmet lalt           spc            @agr rmet rctl
 )
 
 ;; The dvorak layer remaps the keys to the dvorak layout. In addition there is
@@ -48,14 +46,32 @@
   tab  '    ,    .    p    y    f    g    c    r    l    /    =    \
   @cap a    o    e    u    i    d    h    t    n    s    -    ret
   lsft lsgt ;    q    j    k    x    b    m    w    v    z    rsft
-  lctl lmet lalt           spc            ralt rmet rctl
 )
 
-;; defalias is used to declare a shortcut for a more complicated action to keep
-;; the deflayer declarations clean and aligned. The alignment in deflayers is not
-;; necessary, but is strongly recommended for ease of understanding visually.
-;;
-;; Aliases are referred to by `@<alias_name>`.
+(deflayer hrm
+  @grl 1    2    3    4    5    6    7    8    9    0    -    =    bspc
+  tab  q    w    e    r    t    y    u    i    o    p    [    ]
+  @cap @hra @hrs @hrd @hrf g    h    @hrj @hrk @hrl @hr;    '    \ ret
+  lsft lsgt z    x    c    v    b    n    m    ,    .    /    rsft
+)
+
+
+;; TODO: add chords ex. sd+j = ctl-j, jk+d = sht+d
+;; TODO: do one-dimensional chord definition with python script
+
+;; homerow mods
+(defalias
+	hra (tap-hold-release-keys $tt $ht a ralt $left-hand-keys)
+	hrs (tap-hold-release-keys $tt $ht s lctl $left-hand-keys)
+	hrd (tap-hold-release-keys $tt $ht d lsft $left-hand-keys)
+	hrf (tap-hold-release-keys $tt $ht f lalt $left-hand-keys)
+	hrj (tap-hold-release-keys $tt $ht j lalt $right-hand-keys)
+	hrk (tap-hold-release-keys $tt $ht k lsft $right-hand-keys)
+	hrl (tap-hold-release-keys $tt $ht l lctl $right-hand-keys)
+	hr; (tap-hold-release-keys $tt $ht ; ralt $right-hand-keys)
+)
+
+;; layer switch aliases
 (defalias
   ;; tap: backtick (grave), hold: toggle layer-switching layer while held
   grl (tap-hold 200 200 grv (layer-toggle layers))
@@ -63,6 +79,9 @@
   ;; layer-switch changes the base layer.
   dvk (layer-switch dvorak)
   qwr (layer-switch qwerty)
+  ;; qwerty with homerows
+  hrm (layer-switch hrm)
+  chr (layer-switch chr)
 
   ;; tap for capslk, hold for lctl
   cap (tap-hold 200 200 esc (layer-toggle layers))
@@ -70,19 +89,125 @@
   agr f20
 )
 
-;; The `lrld` action stands for "live reload". This will re-parse everything
-;; except for linux-dev, meaning you cannot live reload and switch keyboard
-;; devices.
-;;
-;; The keys 1 and 2 switch the base layer to qwerty and dvorak respectively.
-;;
 ;; Apart from the layer switching and live reload, all other keys are the
 ;; underscore _ which means "transparent". Transparent means the base layer
 ;; behaviour is used when pressing that key.
 (deflayer layers
-  _    @qwr @dvk lrld _    _    _    _    _    _    _    _    _    _
+  _    @qwr @dvk lrld @hrm @chr _    _    _    _    _    _    _    _
   _    _    _    _    _    _    _    _    _    _    _    _    _    _
   _    _    _    _    _    _    _    _    _    _    _    _    _
-  _    _    _    _    _    _    _    _    _    _    _    _
-  _    _    _    _         _              _    _    _
+  _    _    _    _    _    _    _    _    _    _    _    _    _
+)
+
+(defvar
+	tt 200
+	ht 200
+	left-hand-keys (
+		spc
+		q w e r t
+		a s d f g
+		z x c v b
+	)
+	right-hand-keys (
+		spc
+		y u i o p
+		h j k l ;
+		n m , . /
+  )
+)
+
+(deflayer chr
+  @grl 1    2    3    4    5    6    7    8    9    0    -    =    bspc
+  tab  q    w    e    r    t    y    u    i    o    p    [    ]
+  @cap @cha @chs @chd @chf g    h    @chj @chk @chl @ch; '    \    ret
+  lsft lsgt z    x    c    v    b    n    m    ,    .    /    rsft
+)
+
+(deflayer lchrds
+  _    _    _    _    _    _    S-6  S-7  S-8  S-9  S-0  S--  S-=  bspc
+  _    _    _    _    _    _    S-y  S-u  S-i  S-o  S-p  S-[  S-]
+  _    _    _    _    _    _    S-h  S-j  S-k  S-l  S-;  S-'  S-\  ret
+  lsft lsgt S-z  S-x  S-c  S-v  S-b  S-n  S-m  S-,  S-.  S-/  rsft
+)
+
+(deflayer rchrds
+  @grl S-1  S-2  S-3  S-4  S-5  _    _    _    _    _    _    _    bspc
+  tab  S-q  S-w  S-e  S-r  S-t  _    _    _    _    _    _    _
+  @cap S-a  S-s  S-d  S-f  S-g  _    _    _    _    _    _    _    ret
+  lsft lsgt S-z  S-x  S-c  S-v  _    _    _    _    _    _    rsft
+)
+
+(deflayer lchrdc
+  _    _    _    _    _    _    C-6  C-7  C-8  C-9  C-0  C--  C-=  bspc
+  _    _    _    _    _    _    C-y  C-u  C-i  C-o  C-p  C-[  C-]
+  _    _    _    _    _    _    C-h  C-j  C-k  C-l  C-;  C-'  C-\  ret
+  lsft lsgt C-z  C-x  C-c  C-v  C-b  C-n  C-m  C-,  C-.  C-/  rsft
+)
+
+(deflayer rchrdc
+  @grl C-1  C-2  C-3  C-4  C-5  _    _    _    _    _    _    _    bspc
+  tab  C-q  C-w  C-e  C-r  C-t  _    _    _    _    _    _    _
+  @cap C-a  C-s  C-d  C-f  C-g  _    _    _    _    _    _    _    ret
+  lsft lsgt C-z  C-x  C-c  C-v  _    _    _    _    _    _    rsft
+)
+
+(deflayer lchrdw
+  _    _    _    _    _    _    M-6  M-7  M-8  M-9  M-0  M--  M-=  bspc
+  _    _    _    _    _    _    M-y  M-u  M-i  M-o  M-p  M-[  M-]
+  _    _    _    _    _    _    M-h  M-j  M-k  M-l  M-;  M-'  M-\  ret
+  lsft lsgt M-z  M-x  M-c  M-v  M-b  M-n  M-m  M-,  M-.  M-/  rsft
+)
+
+(deflayer rchrdw
+  @grl M-1  M-2  M-3  M-4  M-5  _    _    _    _    _    _    _    bspc
+  tab  M-q  M-w  M-e  M-r  M-t  _    _    _    _    _    _    _
+  @cap M-a  M-s  M-d  M-f  M-g  _    _    _    _    _    _    _    ret
+  lsft lsgt M-z  M-x  M-c  M-v  _    _    _    _    _    _    rsft
+)
+
+(deflayer lchrda
+  _    _    _    _    _    _    A-6  A-7  A-8  A-9  A-0  A--  A-=  bspc
+  _    _    _    _    _    _    A-y  A-u  A-i  A-o  A-p  A-[  A-]
+  _    _    _    _    _    _    A-h  A-j  A-k  A-l  A-;  A-'  A-\  ret
+  lsft lsgt A-z  A-x  A-c  A-v  A-b  A-n  A-m  A-,  A-.  A-/  rsft
+)
+
+(deflayer rchrda
+  @grl A-1  A-2  A-3  A-4  A-5  _    _    _    _    _    _    _    bspc
+  tab  A-q  A-w  A-e  A-r  A-t  _    _    _    _    _    _    _
+  @cap A-a  A-s  A-d  A-f  A-g  _    _    _    _    _    _    _    ret
+  lsft lsgt A-z  A-x  A-c  A-v  _    _    _    _    _    _    rsft
+)
+
+(defalias
+	cha (chord base a)
+	chs (chord base s)
+	chd (chord base d)
+	chf (chord base f)
+
+	chj (chord base j)
+	chk (chord base k)
+	chl (chord base l)
+	ch; (chord base ;)
+)
+
+(defchords base 50
+	(a) a
+	(s) s
+	(d) d
+	(f) f
+
+	(j) j
+	(k) k
+	(l) l
+	(;) ;
+	(  s d  ) (layer-toggle lchrds)
+	(    d f) (layer-toggle lchrdc)
+	(  s d f) (layer-toggle lchrdw)
+	(  s   f) (layer-toggle lchrda)
+
+	(  k l  ) (layer-toggle rchrds)
+	(j k    ) (layer-toggle rchrdc)
+	(j k l  ) (layer-toggle rchrdw)
+	(j   l  ) (layer-toggle rchrda)
 )
