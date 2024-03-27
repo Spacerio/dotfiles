@@ -9,6 +9,11 @@
 ;; also hopefully have helpful error messages in case something goes wrong.
 ;; If you need help, you are welcome to ask.
 
+(defcfg
+ 	;; windows-altgr cancel-lctl-press
+ 	windows-altgr add-lctl-release
+)
+
 ;; Only one defsrc is allowed.
 ;;
 ;; defsrc defines the keys that will be intercepted by kanata. The order of the
@@ -17,9 +22,9 @@
 ;; be passed straight to the operating system.
 (defsrc
   grv  1    2    3    4    5    6    7    8    9    0    -    =    bspc
-  tab  q    w    e    r    t    y    u    i    o    p    [    ]    \
-  caps a    s    d    f    g    h    j    k    l    ;    '    ret
-  lsft z    x    c    v    b    n    m    ,    .    /    rsft
+  tab  q    w    e    r    t    y    u    i    o    p    [    ]
+  caps a    s    d    f    g    h    j    k    l    ;    '    \    ret
+  lsft lsgt z    x    c    v    b    n    m    ,    .    /    rsft
   lctl lmet lalt           spc            ralt prnt rctl
 )
 
@@ -28,10 +33,10 @@
 ;; backtick/grave key (@grl) which is an alias for a tap-hold key.
 (deflayer qwerty
   @grl 1    2    3    4    5    6    7    8    9    0    -    =    bspc
-  tab  q    w    e    r    t    y    u    i    o    p    [    ]    \
-  @cap a    s    d    f    g    h    j    k    l    ;    '    ret
-  lsft z    x    c    v    b    n    m    ,    .    /    rsft
-  lctl lmet lalt           spc            ralt rmet rctl
+  tab  q    w    e    r    t    y    u    i    o    p    [    ]
+  @cap a    s    d    f    g    h    j    k    l    ;    '    \    ret
+  lsft lsgt z    x    c    v    b    n    m    ,    .    /    rsft
+  lctl lmet lalt           spc            @agr rmet rctl
 )
 
 ;; The dvorak layer remaps the keys to the dvorak layout. In addition there is
@@ -41,7 +46,7 @@
   @grl 1    2    3    4    5    6    7    8    9    0    [    ]    bspc
   tab  '    ,    .    p    y    f    g    c    r    l    /    =    \
   @cap a    o    e    u    i    d    h    t    n    s    -    ret
-  lsft ;    q    j    k    x    b    m    w    v    z    rsft
+  lsft lsgt ;    q    j    k    x    b    m    w    v    z    rsft
   lctl lmet lalt           spc            ralt rmet rctl
 )
 
@@ -60,6 +65,8 @@
 
   ;; tap for capslk, hold for lctl
   cap (tap-hold 200 200 esc (layer-toggle layers))
+  ;; bind altgr to f20 for glazewm
+  agr f20
 )
 
 ;; The `lrld` action stands for "live reload". This will re-parse everything
@@ -76,5 +83,5 @@
   _    _    _    _    _    _    _    _    _    _    _    _    _    _
   _    _    _    _    _    _    _    _    _    _    _    _    _
   _    _    _    _    _    _    _    _    _    _    _    _
-  _    _    _              _              _    _    _
+  _    _    _    _         _              _    _    _
 )
