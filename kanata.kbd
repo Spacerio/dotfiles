@@ -9,10 +9,11 @@
 ;; also hopefully have helpful error messages in case something goes wrong.
 ;; If you need help, you are welcome to ask.
 
-(defcfg
- 	;; windows-altgr cancel-lctl-press
- 	windows-altgr add-lctl-release
-)
+;; not needed when using f20 as altgr
+;; (defcfg
+;;  	windows-altgr cancel-lctl-press
+;;  	windows-altgr add-lctl-release
+;; )
 
 ;; Only one defsrc is allowed.
 ;;
