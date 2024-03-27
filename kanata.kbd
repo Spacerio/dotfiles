@@ -1,26 +1,9 @@
-;; Comments are prefixed by double-semicolon. A single semicolon is parsed as the
-;; keyboard key. Comments are ignored for the configuration file.
-;;
-;; This configuration language is Lisp-like. If you're unfamiliar with Lisp,
-;; don't be alarmed. The maintainer jtroo is also unfamiliar with Lisp. You
-;; don't need to know Lisp in-depth to be able to configure kanata.
-;;
-;; If you follow along with the examples, you should be fine. Kanata should
-;; also hopefully have helpful error messages in case something goes wrong.
-;; If you need help, you are welcome to ask.
-
 ;; not needed when using f20 as altgr
 ;; (defcfg
 ;;  	windows-altgr cancel-lctl-press
 ;;  	windows-altgr add-lctl-release
 ;; )
 
-;; Only one defsrc is allowed.
-;;
-;; defsrc defines the keys that will be intercepted by kanata. The order of the
-;; keys matches with deflayer declarations and all deflayer declarations must
-;; have the same number of keys as defsrc. Any keys not listed in defsrc will
-;; be passed straight to the operating system.
 (defsrc
   grv  1    2    3    4    5    6    7    8    9    0    -    =    bspc
   tab  q    w    e    r    t    y    u    i    o    p    [    ]
@@ -28,9 +11,13 @@
   lsft lsgt z    x    c    v    b    n    m    ,    .    /    rsft
 )
 
-;; The first layer defined is the layer that will be active by default when
-;; kanata starts up. This layer is the standard QWERTY layout except for the
-;; backtick/grave key (@grl) which is an alias for a tap-hold key.
+(deflayer chr
+  @grl 1    2    3    4    5    6    7    8    9    0    -    =    bspc
+  tab  q    w    e    r    t    y    u    i    o    p    [    ]
+  @cap @cha @chs @chd @chf g    h    @chj @chk @chl @ch; '    \    ret
+  lsft lsgt z    x    c    v    b    n    m    ,    .    /    rsft
+)
+
 (deflayer qwerty
   @grl 1    2    3    4    5    6    7    8    9    0    -    =    bspc
   tab  q    w    e    r    t    y    u    i    o    p    [    ]
@@ -38,9 +25,6 @@
   lsft lsgt z    x    c    v    b    n    m    ,    .    /    rsft
 )
 
-;; The dvorak layer remaps the keys to the dvorak layout. In addition there is
-;; another tap-hold key: @cap. This key retains caps lock functionality when
-;; quickly tapped but is read as left-control when held.
 (deflayer dvorak
   @grl 1    2    3    4    5    6    7    8    9    0    [    ]    bspc
   tab  '    ,    .    p    y    f    g    c    r    l    /    =    \
@@ -81,6 +65,7 @@
   qwr (layer-switch qwerty)
   ;; qwerty with homerows
   hrm (layer-switch hrm)
+  ;; qwerty with chords
   chr (layer-switch chr)
 
   ;; tap for capslk, hold for lctl
@@ -116,12 +101,6 @@
   )
 )
 
-(deflayer chr
-  @grl 1    2    3    4    5    6    7    8    9    0    -    =    bspc
-  tab  q    w    e    r    t    y    u    i    o    p    [    ]
-  @cap @cha @chs @chd @chf g    h    @chj @chk @chl @ch; '    \    ret
-  lsft lsgt z    x    c    v    b    n    m    ,    .    /    rsft
-)
 
 (deflayer lchrds
   _    _    _    _    _    _    S-6  S-7  S-8  S-9  S-0  S--  S-=  bspc
