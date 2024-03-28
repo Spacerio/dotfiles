@@ -9,6 +9,7 @@
   tab  q    w    e    r    t    y    u    i    o    p    [    ]
   caps a    s    d    f    g    h    j    k    l    ;    '    \    ret
   lsft lsgt z    x    c    v    b    n    m    ,    .    /    rsft
+  								spc
 )
 
 (deflayer chr
@@ -16,6 +17,7 @@
   tab  q    w    e    r    t    y    u    i    o    p    [    ]
   @cap @cha @chs @chd @chf g    h    @chj @chk @chl @ch; '    \    ret
   lsft lsgt z    x    c    v    b    n    m    ,    .    /    rsft
+  								@spc
 )
 
 (deflayer qwerty
@@ -23,6 +25,7 @@
   tab  q    w    e    r    t    y    u    i    o    p    [    ]
   @cap a    s    d    f    g    h    j    k    l    ;    '    \    ret
   lsft lsgt z    x    c    v    b    n    m    ,    .    /    rsft
+  								@spc
 )
 
 (deflayer dvorak
@@ -30,6 +33,7 @@
   tab  '    ,    .    p    y    f    g    c    r    l    /    =    \
   @cap a    o    e    u    i    d    h    t    n    s    -    ret
   lsft lsgt ;    q    j    k    x    b    m    w    v    z    rsft
+  								@spc
 )
 
 (deflayer hrm
@@ -37,6 +41,7 @@
   tab  q    w    e    r    t    y    u    i    o    p    [    ]
   @cap @hra @hrs @hrd @hrf g    h    @hrj @hrk @hrl @hr;    '    \ ret
   lsft lsgt z    x    c    v    b    n    m    ,    .    /    rsft
+  								@spc
 )
 
 
@@ -70,6 +75,10 @@
 
   ;; tap for capslk, hold for lctl
   cap (tap-hold 200 200 esc (layer-toggle layers))
+  
+  ;; Add alias for space shift
+  spc (tap-hold-release 200 200 spc lsft)
+
   ;; bind altgr to f20 for glazewm
   agr f20
 )
@@ -82,6 +91,7 @@
   _    _    _    _    _    _    _    _    _    _    _    _    _    _
   _    _    _    _    _    _    _    _    _    _    _    _    _
   _    _    _    _    _    _    _    _    _    _    _    _    _
+  								@spc
 )
 
 (defvar
@@ -107,6 +117,7 @@
   _    _    _    _    _    _    S-y  S-u  S-i  S-o  S-p  S-[  S-]
   _    _    _    _    _    _    S-h  S-j  S-k  S-l  S-;  S-'  S-\  ret
   lsft lsgt S-z  S-x  S-c  S-v  S-b  S-n  S-m  S-,  S-.  S-/  rsft
+  								@spc
 )
 
 (deflayer rchrds
@@ -114,6 +125,7 @@
   tab  S-q  S-w  S-e  S-r  S-t  _    _    _    _    _    _    _
   @cap S-a  S-s  S-d  S-f  S-g  _    _    _    _    _    _    _    ret
   lsft lsgt S-z  S-x  S-c  S-v  _    _    _    _    _    _    rsft
+  								@spc
 )
 
 (deflayer lchrdc
@@ -121,6 +133,7 @@
   _    _    _    _    _    _    C-y  C-u  C-i  C-o  C-p  C-[  C-]
   _    _    _    _    _    _    C-h  C-j  C-k  C-l  C-;  C-'  C-\  ret
   lsft lsgt C-z  C-x  C-c  C-v  C-b  C-n  C-m  C-,  C-.  C-/  rsft
+  								@spc
 )
 
 (deflayer rchrdc
@@ -128,6 +141,7 @@
   tab  C-q  C-w  C-e  C-r  C-t  _    _    _    _    _    _    _
   @cap C-a  C-s  C-d  C-f  C-g  _    _    _    _    _    _    _    ret
   lsft lsgt C-z  C-x  C-c  C-v  _    _    _    _    _    _    rsft
+  								@spc
 )
 
 (deflayer lchrdw
@@ -135,6 +149,7 @@
   _    _    _    _    _    _    M-y  M-u  M-i  M-o  M-p  M-[  M-]
   _    _    _    _    _    _    M-h  M-j  M-k  M-l  M-;  M-'  M-\  ret
   lsft lsgt M-z  M-x  M-c  M-v  M-b  M-n  M-m  M-,  M-.  M-/  rsft
+  								@spc
 )
 
 (deflayer rchrdw
@@ -142,6 +157,7 @@
   tab  M-q  M-w  M-e  M-r  M-t  _    _    _    _    _    _    _
   @cap M-a  M-s  M-d  M-f  M-g  _    _    _    _    _    _    _    ret
   lsft lsgt M-z  M-x  M-c  M-v  _    _    _    _    _    _    rsft
+  								@spc
 )
 
 (deflayer lchrda
@@ -149,6 +165,7 @@
   _    _    _    _    _    _    A-y  A-u  A-i  A-o  A-p  A-[  A-]
   _    _    _    _    _    _    A-h  A-j  A-k  A-l  A-;  A-'  A-\  ret
   lsft lsgt A-z  A-x  A-c  A-v  A-b  A-n  A-m  A-,  A-.  A-/  rsft
+  								@spc
 )
 
 (deflayer rchrda
@@ -156,6 +173,7 @@
   tab  A-q  A-w  A-e  A-r  A-t  _    _    _    _    _    _    _
   @cap A-a  A-s  A-d  A-f  A-g  _    _    _    _    _    _    _    ret
   lsft lsgt A-z  A-x  A-c  A-v  _    _    _    _    _    _    rsft
+  								@spc
 )
 
 (defalias
