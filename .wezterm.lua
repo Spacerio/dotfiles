@@ -50,6 +50,9 @@ config.window_background_opacity = 0.8
 
 config.default_domain = 'WSL:Ubuntu'
 
+-- otherwise mods are spaces
+config.allow_win32_input_mode = false
+
 wezterm.gui.enumerate_gpus()
 for _, gpu in ipairs(wezterm.gui.enumerate_gpus()) do
 	if gpu.backend == "Vulkan" then
