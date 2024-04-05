@@ -7,7 +7,12 @@ config.keys = {
 		key = 'R',
 		mods = "SHIFT|CTRL",
 		action = wezterm.action.ReloadConfiguration
-	}
+	},
+	{
+		key = 'M',
+		mods = 'SHIFT|CTRL',
+		action = wezterm.action.ShowLauncher
+	},
 }
 
 -- config.window_background_gradient = {
