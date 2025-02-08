@@ -43,7 +43,9 @@ then
     export FZF_DEFAULT_COMMAND='fd -H -E .git .'
 fi
 
-. "$HOME/.cargo/env"
+if [ -e $HOME/.cargo/env ]; then
+    . "$HOME/.cargo/env"
+fi
 
 PATH=$PATH:~/.local/share/bob/nvim-bin
 
@@ -51,7 +53,6 @@ alias cls='clear'
 alias winuser='cd /mnt/c/Users/Omistaja'
 alias br='br -h'
 alias e='exit'
-alias alacritty='cd /mnt/c/Users/Omistaja/AppData/Roaming/alacritty'
 alias lg='lazygit'
 alias t='tmux'
 alias ta='tmux attach'
@@ -74,6 +75,10 @@ alias ns="nvim -c SessionsLoad"
 alias so="exec zsh"
 alias sk="rg --files -L -. | sk --bind 'ctrl-t:execute(nvim {})+abort' --preview 'bat {} --color=always'"
 alias make="make -s"
+
+if [ -e /mnt/c/Users ]; then
+    alias alacritty='cd /mnt/c/Users/Omistaja/AppData/Roaming/alacritty'
+fi
 
 if [ -e /home/user/.nix-profile/etc/profile.d/nix.sh ]; then . /home/user/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
 

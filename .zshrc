@@ -1,3 +1,10 @@
+# run sway
+# TODO: move to zinit or similar
+if [ -z "$WAYLAND_DISPLAY" ] && [ "$XDG_VTNR" -ge 1 ]; then
+	sway
+	exit
+fi
+
 # zmodload zsh/zprof
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
@@ -15,10 +22,10 @@ source ~/Git/zsh-snap/znap.zsh  # Start Znap
 znap source romkatv/powerlevel10k
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-# `znap source` automatically downloads and starts your plugins.
-znap source marlonrichert/zsh-autocomplete
 # znap source zsh-users/zsh-autosuggestions
 znap source zdharma-continuum/fast-syntax-highlighting
+# `znap source` automatically downloads and starts your plugins.
+znap source marlonrichert/zsh-autocomplete
 
 # `znap eval` caches and runs any kind of command output for you.
 
@@ -67,10 +74,12 @@ compinit
 
 
 
+## TODO: conditional zoxide eval
 # znap eval zoxide "zoxide init zsh"
-eval "$(zoxide init zsh)"
+# eval "$(zoxide init zsh)"
 
-if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
+if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ] && [[ -O LOGIN ]]; then
+    # TODO: copy fish script for not always attaching
   exec tmux attach
 fi
 
@@ -82,4 +91,5 @@ export NVM_DIR="$HOME/.nvm"
 
 [ -f "/home/user/.ghcup/env" ] && source "/home/user/.ghcup/env" # ghcup-env
 
-source /home/user/.config/broot/launcher/bash/br
+# TODO: conditional broot management
+# source /home/user/.config/broot/launcher/bash/br
