@@ -1,4 +1,4 @@
-#!/bin/env fish
+#!/usr/bin/env fish
 set wd ~
 
 set dir (broot -fh ~)
