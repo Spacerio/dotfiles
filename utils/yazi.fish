@@ -1,5 +1,5 @@
-#!/bin/env fish
-set wd ~/.dotfiles
+#!/usr/bin/env fish
+set wd ~
 set temp ~/.dotfiles/utils/temp
 
 yazi $wd --chooser-file $temp

@@ -2,16 +2,6 @@
 # If you encounter any issues, please make an issue at https://github.com/yazi-rs/schemas.
 "$schema" = "https://yazi-rs.github.io/schemas/yazi.json"
 
-[manager]
-ratio 		   	= [1, 2, 4]
-sort_by        	= "natural"
-sort_sensitive 	= false
-sort_reverse   	= false
-sort_dir_first 	= true
-linemode       	= "size"
-show_hidden    	= true
-show_symlink   	= true
-scrolloff		= 5
 
 [preview]
 tab_size        = 2
@@ -26,7 +16,8 @@ ueberzug_offset = [ 0, 0, 0, 0 ]
 
 [opener]
 edit = [
-	{ run = '${EDITOR:=nvim} "$@"', desc = "$EDITOR", block = true, for = "unix" },
+	# { run = '${EDITOR:=nvim} "$@"', desc = "$EDITOR", block = true, for = "unix" },
+	{ run = 'nvim "$@"', desc = "$EDITOR", block = true, for = "unix" },
 	{ run = 'code "%*"',    orphan = true, desc = "code",         for = "windows" },
 	{ run = 'code -w "%*"', block = true,  desc = "code (block)", for = "windows" },
 ]
@@ -53,6 +44,8 @@ play = [
 [open]
 rules = [
 	{ name = "*/", use = [ "edit", "open", "reveal" ] },
+	{ name = "*.json", use = [ "edit", "open", "reveal" ] },
+	{ name = "*.css", use = [ "edit", "open", "reveal" ] },
 
 	{ mime = "text/*",  use = [ "edit", "reveal" ] },
 	{ mime = "image/*", use = [ "open", "reveal" ] },
@@ -86,7 +79,7 @@ suppress_preload = false
 [plugin]
 
 preloaders = [
-	{ name = "*", cond = "!mime", run = "mime", multi = true, prio = "high" },
+	# { name = "*", cond = "!mime", run = "mime", multi = true, prio = "high" },
 	# Image
 	{ mime = "image/vnd.djvu", run = "noop" },
 	{ mime = "image/*",        run = "image" },
@@ -130,10 +123,10 @@ cd_title  = "Change directory:"
 cd_origin = "top-center"
 cd_offset = [ 0, 2, 50, 3 ]
 
-# create
-create_title  = "Create:"
-create_origin = "top-center"
-create_offset = [ 0, 2, 50, 3 ]
+# # create
+# create_title  = "Create:"
+# create_origin = "top-center"
+# create_offset = [ 0, 2, 50, 3 ]
 
 # rename
 rename_title  = "Rename:"
