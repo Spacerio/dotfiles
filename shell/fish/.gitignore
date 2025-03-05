@@ -1,0 +1,5 @@
+fish_variables
+conf.d/
+functions/jalava.fish
+functions/fisher.fish
+completions/
