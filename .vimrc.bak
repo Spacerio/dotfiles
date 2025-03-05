@@ -12,11 +12,8 @@ Plug 'preservim/nerdtree'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'christoomey/vim-tmux-navigator'
-Plug 'tpope/vim-commentary'
-Plug 'tpope/vim-unimpaired'
-" Plug 'jiangmiao/auto-pairs'
 call plug#end()
-" PlugIntall to install 
+" PlugUpdate to update 
 
 " Better navigation
 nnoremap <C-u> <C-u>zz
@@ -24,7 +21,7 @@ nnoremap <C-d> <C-d>zz
 
 nnoremap <space>s :so %<cr>
 nnoremap <space>e :NERDTree<cr>
-nnoremap <C-p> :GitFiles <cr>
+nnoremap <C-p> :Files <cr>
 
 inoremap <C-h> :TmuxNavigateLeft<cr>
 inoremap <C-j> :TmuxNavigateDown<cr>
@@ -33,11 +30,6 @@ inoremap <C-l> :TmuxNavigateRight<cr>
 
 let g:NERDTreeShowHidden='1'
 
-filetype plugin indent on
-
-autocmd FileType nix setlocal softtabstop=2
-autocmd FileType nix setlocal shiftwidth=2
-
 set nocompatible
 filetype plugin indent on  " Load plugins according to detected filetype.
 syntax on                  " Enable syntax highlighting.
@@ -45,7 +37,7 @@ set background=dark
 set number
 set relativenumber
 set autoindent             " Indent according to previous line.
-set expandtab		   " Expand tabs
+set noexpandtab		   " Dont expand tabs
 set softtabstop =4         " Tab key indents by 4 spaces.
 set shiftwidth  =4         " >> indents by 4 spaces.
 set shiftround             " >> indents to next multiple of 'shiftwidth'.
@@ -69,7 +61,5 @@ set ttimeoutlen =5
 set noesckeys
 set encoding	=utf-8
 set nowrap
-set noswapfile
-set scrolloff  =10
 
 silent! colorscheme gruvbox
