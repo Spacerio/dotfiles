@@ -1,9 +1,9 @@
 #!/usr/bin/env fish
 
-set paths (string collect (cat ~/.dotfiles/utils/tmux_dirs))
+set paths (string collect (cat ~/dotfiles/utils/tmux_dirs))
 
-# set single_dirs ~/.config ~/.dotfiles ~
-set single_dirs (cat ~/.dotfiles/utils/paths)
+# set single_dirs ~/.config ~/dotfiles ~
+set single_dirs (cat ~/dotfiles/utils/paths)
 # set paths (fd -d 1 -t d . (string split " " (echo $paths | string replace "~" "/home/user"))) $single_dirs 
 set paths (find (string split " " (echo $paths)) -mindepth 0 -maxdepth 1 -type d) $single_dirs
 
