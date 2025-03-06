@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-wd=~/.dotfiles/imgs
+wd=~/dotfiles/imgs
 
 
 file=/tmp/wpFile
