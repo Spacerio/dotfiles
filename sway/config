@@ -24,7 +24,7 @@ set $browser firefox
 #
 # Default wallpaper (more resolutions are available in /run/current-system/sw/share/backgrounds/sway/)
 # output * bg /run/current-system/sw/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
-output * bg ~/.dotfiles/imgs/city.jpg fill
+output * bg ~/dotfiles/imgs/city.jpg fill
 #
 # Example configuration:
 #
