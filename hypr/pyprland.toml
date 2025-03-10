@@ -1,0 +1,15 @@
+[pyprland]
+plugins = [
+	"scratchpads"
+]
+
+[pyprland.variables]
+term = "kitty -d ~ --class scratch"
+
+[scratchpads.nh]
+command = "[term]"
+class = "scratch"
+size = "80% 80%"
+animation = ""
+hide_delay = 0.2
+position = "10% 10%"
