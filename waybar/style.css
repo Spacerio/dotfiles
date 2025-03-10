@@ -45,8 +45,8 @@ window#waybar.hidden {
     margin:4px 5px 4px 0px;
     padding:0px 4px 0px 4px;
     color: @foreground;
-	/* transition: all 0.3s cubic-bezier( 0.81, 0.31, 0.33, 0.72 ); */
-	transition: all 0.3s ease;
+	transition: all 0.5s cubic-bezier( 0.33, 0.8, 0, 1 );
+	/* transition: all 0.3s ease; */
 }
 #workspaces button.active {
 	/* background-size: 400% 400%; */
