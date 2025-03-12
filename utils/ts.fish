@@ -10,18 +10,18 @@ set paths (find (string split " " (echo $paths)) -mindepth 0 -maxdepth 1 -type d
 if test -z argv
 	set selected $argv[1]
 else
-	set selected (string collect $paths | string replace "/home/lait" "~" | sort | fzf)
+	set selected (string collect $paths | string replace "/home/lait" "~" | sort | fzf --tmux)
 end
 
-if ! set -q selected
+if [ -z $selected ]
 	exit 0
 end
 
 set dir (echo $selected | string replace "~" "/home/lait")
 # set dir $selected
 set name (path basename $dir | tr . _)
-echo dir $dir
-echo name $name
+# echo dir $dir
+# echo name $name
 
 if test -z $TMUX && test -z $tmux_running
     tmux new-session -s $name -c $dir
