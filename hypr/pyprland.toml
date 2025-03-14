@@ -7,8 +7,16 @@ plugins = [
 term = "kitty -d ~ --class scratch"
 
 [scratchpads.nh]
-command = "[term]"
-class = "scratch"
+command = "[term]_nh"
+class = "scratch_nh"
+size = "80% 80%"
+animation = ""
+hide_delay = 0.2
+position = "10% 10%"
+
+[scratchpads.spotify]
+command = "[term]_spotify spotify_player"
+class = "scratch_spotify"
 size = "80% 80%"
 animation = ""
 hide_delay = 0.2
