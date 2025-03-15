@@ -1,14 +1,12 @@
 #!/usr/bin/env bash
 
-if [ -f shell.nix ]; then
-	nix-shell
+# TODO: further testing, works for now
+if [ -f flake.nix ] && [ -n "$(nix flake show | grep shell)" ]; then
+	fish -c "nix develop"
+elif [ -f shell.nix ]; then
+	fish -c "nix-shell --run $SHELL"
 else
 	fish
 fi
 
 exit 0
-
-# TODO: check if this actually works
-# if [ "$(command -v nix &> /dev/null)" ] && [ -f flake.nix ] && [ "$(nix develop check)" ]; then
-# 	nix develop
-# fi
