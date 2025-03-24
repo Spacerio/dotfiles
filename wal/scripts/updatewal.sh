@@ -13,10 +13,14 @@ echo "$img" >> /tmp/txt
 
 wal -qsi "$img"
 
-cp ~/.cache/wal/colors-waybar.css ~/.config/waybar/
 cp "$img" ~/.cache/wallpaper
 
 swww img "$img" --transition-step 5 -t wave
+
+# update the theme of every neovim instance
+# for addr in "$XDG_RUNTIME_DIR"/nvim.*.0; do
+#     nvim --server "$addr" --remote-send ':colorscheme pywal<CR>'
+# done
  
 pkill waybar; waybar &
 kitty @ action load_config_file
