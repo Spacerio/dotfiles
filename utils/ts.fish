@@ -28,7 +28,7 @@ if test -z $TMUX && test -z $tmux_running
     exit 0
 end
 if not tmux has-session -t=$name 2> /dev/null
-    tmux new-session -ds $name -c $dir '$HOME/dotfiles/utils/autonix.sh'
+    tmux new-session -ds $name -c $dir
 end
 tmux switch-client -t $name
 
