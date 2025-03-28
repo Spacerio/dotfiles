@@ -76,6 +76,8 @@
 ;; they are implemented.
 
 (setq! scroll-margin 10)
+(setq tab-width 4)
+(setq evil-shift-width 4)
 
 ;; enter calc already in emacs mode
 (add-hook 'calc-mode-hook 'evil-emacs-state)
