@@ -76,3 +76,17 @@
 ;; they are implemented.
 
 (setq! scroll-margin 10)
+
+;; enter calc already in emacs mode
+(add-hook 'calc-mode-hook 'evil-emacs-state)
+
+;; hide compilation menu when exiting without errors
+(add-hook 'compilation-finish-functions
+  (lambda (_buf str)
+    (if (null (string-match ".*exited abnormally.*" str))
+        ;;no errors, make the compilation window go away in a few seconds
+        (progn
+          (run-at-time
+           "2 sec" nil 'delete-windows-on
+           (get-buffer-create "*compilation*"))
+          (message "No Compilation Errors!")))))
