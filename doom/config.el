@@ -80,6 +80,19 @@
 ;; enter calc already in emacs mode
 (add-hook 'calc-mode-hook 'evil-emacs-state)
 
+;; rebind C-u and C-d to recenter the screen
+(map! :n "C-u" nil)
+(map! :n "C-d" nil)
+(map! :n "C-u" (lambda () (interactive)
+  (evil-scroll-up 25)
+  (recenter)
+))
+(map! :n "C-d" (lambda () (interactive)
+  (evil-scroll-down 25)
+  (recenter)
+))
+
+
 ;; hide compilation menu when exiting without errors
 (add-hook 'compilation-finish-functions
   (lambda (_buf str)
