@@ -33,8 +33,8 @@
 			"car": " ",
 			"default": [" ", " ", " "]
 		},
-		"on-click": "sink-rotate",
-		"on-click-right": "pavucontrol-qt",
+		"on-click": "pavucontrol",
+		"on-click-right": "~/dotfiles/utils/sink-rotate.sh",
 		"on-click-middle": "pulsemixer --toggle-mute"
 	},
 
