@@ -38,11 +38,6 @@
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
 (setq display-line-numbers-type 'relative)
 
-;; If you use `org' and don't want your org files in the default location below,
-;; change `org-directory'. It must be set before org loads!
-(setq org-directory "~/org/")
-
-
 ;; Whenever you reconfigure a package, make sure to wrap your config in an
 ;; `after!' block, otherwise Doom's defaults may override your settings. E.g.
 ;;
@@ -75,11 +70,13 @@
 ;; You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
 ;; they are implemented.
 
-(setq! scroll-margin 10)
+(setq! scroll-margin 10
+       display-line-numbers 'visual)
 (setq-default tab-width 4)
 (setq! evil-shift-width 4)
 (setq! which-key-idle-delay 0.1)
 (setq doom-font (font-spec :size 16))
+(setq doom-big-font doom-font)
 
 ;; enter calc already in emacs mode
 (add-hook 'calc-mode-hook 'evil-emacs-state)
@@ -150,12 +147,17 @@
         ("oc" "Project changelog" entry #'+org-capture-central-project-changelog-file
          "* %U %?\n %i\n %a" :heading "Changelog" :prepend t)
         ))
-
+;; Custom org roam templates, TODO:
 (setq org-roam-capture-templates
-      '(("d" "default" plain "%?"
-         :target (file+head "main/${slug}.org" "#+title: ${title}\n")
+      '(("d" "default" plain "* %?"
+         :target (file+head "${slug}.org" "#+title: ${title}\n")
          :unnarrowed t)
         ("s" "school" entry "* %?"
-         :target (file+head "main/${slug}.org" "#+title: ${title}\n#+FILETAGS: :school:\n")
+         :target (file+head "${slug}.org" "#+title: ${title}\n#+FILETAGS: :school:\n")
          :unnarrowed t)
 ))
+;; Custom org roam bindings
+(defun my/ring-goto ()
+    "Bind the org-mark-ring-goto"
+    (map! "M-o" 'org-mark-ring-goto))
+(add-hook! 'org-mode-hook 'my/ring-goto)
